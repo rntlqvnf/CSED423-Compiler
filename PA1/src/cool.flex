@@ -85,7 +85,6 @@ LP_STAR         \(\*
 STAR_RP         \*\)
 
 ALL             .
-ALL_NO_NEW_LINE [^\n]*
 
 %x STRING
 %x ONE_LINE_COMMENT
@@ -107,7 +106,7 @@ ALL_NO_NEW_LINE [^\n]*
   BEGIN(INITIAL);
   curr_lineno++;
 }
-<ONE_LINE_COMMENT>{ALL_NO_NEW_LINE} {}
+<ONE_LINE_COMMENT>{ALL} {}
 
  /* 
  * Multi Line Comments
@@ -231,12 +230,13 @@ ALL_NO_NEW_LINE [^\n]*
 	return ERROR;
 }
 <STRING>{ESCAPE}{NEWLINE} {
+	curr_lineno++;
   cur_string += '\n';
 }
 <STRING>{NULL} {
   null_flag = 1;
 }
-<STRING>{ESCAPE} {
+<STRING>{ESCAPE}{ALL} {
   switch(yytext[1]) {
     case 'b':
       cur_string += '\b';

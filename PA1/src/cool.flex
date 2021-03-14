@@ -33,6 +33,10 @@ extern YYSTYPE cool_yylval;
  *  Add Your own definitions here
  */
 
+static int null_flag;
+static std::string cur_string;
+static int lp_star_count;
+
 %}
 
 %option noyywrap
@@ -72,13 +76,68 @@ FALSE	          f(?i:alse)
 TYPEID					[A-Z][a-zA-Z0-9_]*
 OBJECTID				[a-z][a-zA-Z0-9_]*
 
+QUOTE	          \"
+NULL	          \0
+ESCAPE          \\
+
+TWO_HYPHEN      --
+LP_STAR         \(\*
+STAR_RP        \*\)
+
 ALL             .
+ALL_NO_NEW_LINE [^\n]*
+
+%x STRING
+%x ONE_LINE_COMMENT
+%x MUT_LINE_COMMENT
 
 %%
 
  /* 
- * Comments
+ * Singe Line Comments
  */
+
+{TWO_HYPHEN}  { BEGIN(ONE_LINE_COMMENT); }
+<ONE_LINE_COMMENT><<EOF>> {
+  BEGIN(INITIAL);
+	cool_yylval.error_msg = "EOF in comment";
+	return ERROR;
+}
+<ONE_LINE_COMMENT>{NEWLINE} {
+  BEGIN(INITIAL);
+  curr_lineno++;
+}
+<ONE_LINE_COMMENT>{ALL_NO_NEW_LINE} {}
+
+ /* 
+ * Multi Line Comments
+ */
+{LP_STAR} {
+  BEGIN(MUT_LINE_COMMENT);
+  lp_star_count++;
+}
+{STAR_RP} {
+  yylval.error_msg = "Unmatched *)";
+  return ERROR;
+}
+<MUT_LINE_COMMENT>{LP_STAR} {
+  lp_star_count++;
+}
+<MUT_LINE_COMMENT>{STAR_RP} {
+  lp_star_count--;
+  if(lp_star_count == 0) {
+    BEGIN(INITIAL);
+  }
+}
+<MUT_LINE_COMMENT>{NEWLINE} {
+  curr_lineno++;
+}
+<MUT_LINE_COMMENT><<EOF>> {
+  BEGIN(INITIAL);
+	cool_yylval.error_msg = "EOF in comment";
+	return ERROR;
+}
+<MUT_LINE_COMMENT>{ALL_NO_NEW_LINE} {}
 
  /* 
  * Keywords. Except True & False, case insensitive
@@ -138,7 +197,69 @@ ALL             .
  * String. 
  */
 
+{QUOTE}	{
+  BEGIN(STRING);
+  cur_string = "";
+  null_flag = 0;
+}
 
+<STRING>{QUOTE} {
+  BEGIN(INITIAL);
+  if(null_flag == 1) {
+    cool_yylval.error_msg = "String contains invalid character";
+    return ERROR;
+  }
+  else if(cur_string.size() >= MAX_STR_CONST) {
+    cool_yylval.error_msg = "String constant too long";
+    return ERROR;
+  }
+  else {
+    cool_yylval.symbol = stringtable.add_string(cur_string.c_str());
+    return STR_CONST;
+  }
+}
+<STRING><<EOF>> {
+  BEGIN(INITIAL);
+  cool_yylval.error_msg = "EOF in string constant";
+  return ERROR;
+}
+<STRING>{NEWLINE} {
+	BEGIN(INITIAL);
+	curr_lineno++;
+	cool_yylval.error_msg = "Unterminated string constant";
+	return ERROR;
+}
+<STRING>{ESCAPE}{NEWLINE} {
+  cur_string += '\n';
+}
+<STRING>{NULL} {
+  null_flag = 1;
+}
+<STRING>{ESCAPE} {
+  switch(yytext[1]) {
+    case 'b':
+      cur_string += '\b';
+      break;
+    case 't':
+      cur_string += '\t';
+      break;
+    case 'n':
+      cur_string += '\n';
+      break;
+    case 'f':
+      cur_string += '\f';
+      break;
+    case '\0':
+      null_flag = 1;
+      break;
+    default:
+      cur_string += yytext[1];
+      break;
+  }
+}
+<STRING>{ALL} {
+  cur_string += yytext;
+}
 
  /* 
  * Error. 

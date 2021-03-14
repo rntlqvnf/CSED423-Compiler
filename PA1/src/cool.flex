@@ -97,11 +97,6 @@ ALL             .
  */
 
 {TWO_HYPHEN}  { BEGIN(ONE_LINE_COMMENT); }
-<ONE_LINE_COMMENT><<EOF>> {
-  BEGIN(INITIAL);
-	cool_yylval.error_msg = "EOF in comment";
-	return ERROR;
-}
 <ONE_LINE_COMMENT>{NEWLINE} {
   BEGIN(INITIAL);
   curr_lineno++;
@@ -136,39 +131,38 @@ ALL             .
 	cool_yylval.error_msg = "EOF in comment";
 	return ERROR;
 }
-<MUT_LINE_COMMENT>{ALL} {
-}
+<MUT_LINE_COMMENT>{ALL} {}
 
  /* 
  * Keywords. Except True & False, case insensitive
  */
 
-{CLASS}			  { return (CLASS); }
-{ELSE}			  { return (ELSE);  }
-{FI}			  	{ return (FI); }
-{IF}				  { return (IF); }
-{IN}			  	{ return (IN); }
-{INHERITS}  	{ return (INHERITS); }
-{LET}			  	{ return (LET); }
-{LOOP}		  	{ return (LOOP); }
-{POOL}		  	{ return (POOL); }
-{THEN}		  	{ return (THEN); }
-{WHILE}		  	{ return (WHILE); }
-{CASE}		  	{ return (CASE); }
-{ESAC}		  	{ return (ESAC); }
-{OF}			  	{ return (OF); }
-{NEW}			  	{ return (NEW); }
-{ISVOID}	  	{ return (ISVOID); }
-{NOT}				  { return (NOT); }
+{CLASS}			  { return CLASS; }
+{ELSE}			  { return ELSE;  }
+{FI}			  	{ return FI; }
+{IF}				  { return IF; }
+{IN}			  	{ return IN; }
+{INHERITS}  	{ return INHERITS; }
+{LET}			  	{ return LET; }
+{LOOP}		  	{ return LOOP; }
+{POOL}		  	{ return POOL; }
+{THEN}		  	{ return THEN; }
+{WHILE}		  	{ return WHILE; }
+{CASE}		  	{ return CASE; }
+{ESAC}		  	{ return ESAC; }
+{OF}			  	{ return OF; }
+{NEW}			  	{ return NEW; }
+{ISVOID}	  	{ return ISVOID; }
+{NOT}				  { return NOT; }
 
  /* 
  * Whitespace, Integers, Identifiers, and Special Notation.
  */
 
 {WHITESPACE}  {}
-{DARROW}		  { return (DARROW); }
-{LE}				  { return (LE); }
-{ASSIGN}		  { return (ASSIGN); }
+{DARROW}		  { return DARROW; }
+{LE}				  { return LE; }
+{ASSIGN}		  { return ASSIGN; }
 {NEWLINE}		  { curr_lineno++; }
 {ONE_SYMBOL} 	{ return int(yytext[0]); }
 
@@ -186,11 +180,11 @@ ALL             .
 }
 {TYPEID} {
 	cool_yylval.symbol = idtable.add_string(yytext);
-	return (TYPEID);
+	return TYPEID;
 }
 {OBJECTID} {
 	cool_yylval.symbol = idtable.add_string(yytext);
-	return (OBJECTID);
+	return OBJECTID;
 }
 
  /* 
@@ -226,8 +220,8 @@ ALL             .
 <STRING>{NEWLINE} {
 	BEGIN(INITIAL);
 	curr_lineno++;
-	cool_yylval.error_msg = "Unterminated string constant";
-	return ERROR;
+  cool_yylval.error_msg = "Unterminated string constant";
+  return ERROR;
 }
 <STRING>{ESCAPE}{NEWLINE} {
 	curr_lineno++;

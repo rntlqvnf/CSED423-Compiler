@@ -82,7 +82,7 @@ ESCAPE          \\
 
 TWO_HYPHEN      --
 LP_STAR         \(\*
-STAR_RP        \*\)
+STAR_RP         \*\)
 
 ALL             .
 ALL_NO_NEW_LINE [^\n]*
@@ -137,7 +137,8 @@ ALL_NO_NEW_LINE [^\n]*
 	cool_yylval.error_msg = "EOF in comment";
 	return ERROR;
 }
-<MUT_LINE_COMMENT>{ALL_NO_NEW_LINE} {}
+<MUT_LINE_COMMENT>{ALL} {
+}
 
  /* 
  * Keywords. Except True & False, case insensitive

@@ -91,6 +91,8 @@ typedef union {
 # define	NOT	281
 # define	LE	282
 # define	ERROR	283
+# define	LET_STMT	257
+
 
 extern YYSTYPE cool_yylval;
 

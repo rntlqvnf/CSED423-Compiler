@@ -1,0 +1,3 @@
+./lexer $* | ../src/parser > a1.txt 2>&1
+./lexer $* | ../src/parser_s > a2.txt 2>&1
+diff -b a1.txt a2.txt

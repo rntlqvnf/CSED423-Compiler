@@ -101,8 +101,8 @@ extern int VERBOSE_ERRORS;
 %type <feature> feature
 %type <formals> formal_list
 %type <formal> formal
-%type <expression> expr let_init_in_expr
-%type <expressions> expression_sem_list expression_list
+%type <expression> expr let_init_in_expr no_expression
+%type <expressions> expression_sem_list expression_list 
 %type <cases> case_list
 %type <case_> case 
 
@@ -150,51 +150,61 @@ class:
                         $$ = class_($2,idtable.add_string("Object"),$4,
                               stringtable.add_string(curr_filename)); 
                 }
+        | CLASS TYPEID '{' '}' ';'
+                { 
+                        $$ = class_($2,idtable.add_string("Object"),nil_Features(),
+                              stringtable.add_string(curr_filename)); 
+                }
         | CLASS TYPEID INHERITS TYPEID '{' feature_list '}' ';'
                 { 
                         $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); 
                 }
-        | error ';'
+        | CLASS TYPEID INHERITS TYPEID '{' '}' ';'
+                { 
+                        $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); 
+                }
+        | CLASS error '{' feature_list '}' ';'
+                {
+
+                }
+        | CLASS error '{' '}' ';'
                 {
 
                 }
         ;
 
 /* Feature list may be empty, but no empty features in list. */
-feature_list:        
-                {  
-                        $$ = nil_Features(); 
-                }
-        | feature_list feature ';'
+feature_list: 
+        feature_list feature
                 {
                         $$ = append_Features($1, single_Features($2));
                 }
-        | feature ';'
+        | feature
                 {
                         $$ = single_Features($1);
                 }
         ;
 
 feature: 
-        OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}'
+        OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}' ';'
                 {
                         $$ = method($1, $3, $6, $8);
                 }
-        | OBJECTID '(' ')' ':' TYPEID '{' expr '}'
+        | OBJECTID '(' ')' ':' TYPEID '{' expr '}' ';'
                 {
                         $$ = method($1, nil_Formals(), $5, $7);
                 }
-        | OBJECTID ':' TYPEID ASSIGN expr
+        | OBJECTID ':' TYPEID ASSIGN expr ';'
                 {
                         $$ = attr($1, $3, $5);
                 }
-        | OBJECTID ':' TYPEID
+        | OBJECTID ':' TYPEID ';'
                 {
                         $$ = attr($1, $3, no_expr());
                 }
-        | error
+        | error ';'
                 {
-
+                        yyerrok;
                 }
         ;
 
@@ -239,10 +249,6 @@ expression_list:
         | expression_list ',' expr
                 {
                         $$ = append_Expressions($1, single_Expressions($3));
-                }
-        | error 
-                {
-                        
                 }
         ;
 
@@ -359,28 +365,36 @@ expr:
                 {
                         $$ = bool_const($1);
                 }
-        | error
+        | '{' error '}'
                 {
                         
+                }
+        | error 
+                {
+
                 }
         ;
 
 let_init_in_expr:
-        OBJECTID ':' TYPEID IN expr
+        OBJECTID ':' TYPEID no_expression IN expr
                 {
-                        $$ = let($1,$3,no_expr(),$5);
+                        $$ = let($1,$3,$4,$6);
                 }
         | OBJECTID ':' TYPEID ASSIGN expr IN expr
                 {
                         $$ = let($1,$3,$5,$7);
                 }
-        | OBJECTID ':' TYPEID ',' let_init_in_expr
+        | OBJECTID ':' TYPEID no_expression ',' let_init_in_expr
                 {
-                        $$ = let($1,$3,no_expr(),$5);
+                        $$ = let($1,$3,$4,$6);
                 }
         | OBJECTID ':' TYPEID ASSIGN expr ',' let_init_in_expr
                 {
                         $$ = let($1,$3,$5,$7);
+                }
+        | error 
+                {
+                        
                 }
         ;
 
@@ -406,6 +420,10 @@ case:
                 }
         ;
 
+no_expression:
+        {
+                $$ = no_expr();
+        }
 
 /* end of grammar */
 %%

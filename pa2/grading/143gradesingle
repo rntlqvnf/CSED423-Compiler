@@ -215,6 +215,7 @@ if (@ARGV > @cases) {
 # Builds the students submission
 
 #make the binary
+
 if ( $assignname eq "PA2") {
   system("make -C $assigndir lexer");
   if (! -x "$assigndir/lexer") {
@@ -254,7 +255,7 @@ if ($assignname eq "PAX1") {
     exit 1;
   }
 }
-
+*/
 
 $testout = "test.out";
 $testerr = "test.err";

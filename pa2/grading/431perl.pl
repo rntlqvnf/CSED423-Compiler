@@ -7,8 +7,10 @@ $TEST_OUTPUT_DIR="test-output";
 
 print "Grading $assignname...\n\n";
 
+system("chmod u+x ../src/parser_s");
+system("chmod u+x lexer");
+system("chmod u+x myparser");
 system("mkdir -p $TEST_OUTPUT_DIR");
-
 system("make -C ../src clean");
 system("make -C ../src/");
 

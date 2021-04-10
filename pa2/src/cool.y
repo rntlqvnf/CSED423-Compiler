@@ -94,20 +94,21 @@ extern int VERBOSE_ERRORS;
 /* Declare types for the grammar's non-terminals. */
 %type <program> program
 %type <classes> class_list
-%type <class_> class
+%type <class_> class 
 
 /* You will want to change the following line. */
 %type <features> feature_list
 %type <feature> feature
 %type <formals> formal_list
 %type <formal> formal
-%type <expression> expr let_init_in_expr no_expression
-%type <expressions> expression_sem_list expression_list 
+%type <expression> expr let_init_in_expr assign_or_empty
+%type <expressions> expression_sem_list expression_list
 %type <cases> case_list
-%type <case_> case 
-
+%type <case_> case
+%type <symbol> class_head class_error
 
 /* Precedence declarations go here. */
+%left LETPREC
 %right ASSIGN
 %left NOT
 %nonassoc LE '<' '='
@@ -145,77 +146,89 @@ class_list:
 
 /* If no parent is specified, the class inherits from the Object class. */
 class:  
-        CLASS TYPEID '{' feature_list '}' ';'
-                { 
-                        $$ = class_($2,idtable.add_string("Object"),$4,
-                              stringtable.add_string(curr_filename)); 
-                }
-        | CLASS TYPEID '{' '}' ';'
-                { 
-                        $$ = class_($2,idtable.add_string("Object"),nil_Features(),
-                              stringtable.add_string(curr_filename)); 
-                }
-        | CLASS TYPEID INHERITS TYPEID '{' feature_list '}' ';'
+        class_head TYPEID INHERITS TYPEID '{' feature_list
                 { 
                         $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); 
                 }
-        | CLASS TYPEID INHERITS TYPEID '{' '}' ';'
+        | class_head TYPEID '{' feature_list
                 { 
-                        $$ = class_($2,$4,nil_Features(),stringtable.add_string(curr_filename)); 
+                        $$ = class_($2,idtable.add_string("Object"),$4,stringtable.add_string(curr_filename)); 
                 }
-        | CLASS error '{' feature_list '}' ';'
+        ;
+
+class_head:
+        CLASS
                 {
 
                 }
-        | CLASS error '{' '}' ';'
+        | class_error
                 {
 
                 }
         ;
 
-/* Feature list may be empty, but no empty features in list. */
-feature_list: 
-        feature_list feature
-                {
-                        $$ = append_Features($1, single_Features($2));
-                }
-        | feature
-                {
-                        $$ = single_Features($1);
-                }
-        ;
-
-feature: 
-        OBJECTID '(' formal_list ')' ':' TYPEID '{' expr '}' ';'
-                {
-                        $$ = method($1, $3, $6, $8);
-                }
-        | OBJECTID '(' ')' ':' TYPEID '{' expr '}' ';'
-                {
-                        $$ = method($1, nil_Formals(), $5, $7);
-                }
-        | OBJECTID ':' TYPEID ASSIGN expr ';'
-                {
-                        $$ = attr($1, $3, $5);
-                }
-        | OBJECTID ':' TYPEID ';'
-                {
-                        $$ = attr($1, $3, no_expr());
-                }
-        | error ';'
+class_error:
+        error CLASS
                 {
                         yyerrok;
                 }
         ;
 
-formal_list: 
-        formal_list ',' formal
+/* Feature list may be empty, but no empty features in list. */
+feature_list: 
+        feature feature_list
                 {
-                        $$ = append_Formals($1, single_Formals($3));
+                        $$ = append_Features(single_Features($1), $2);
                 }
-        | formal
+        | '}' ';'
+                {
+                        $$ = nil_Features();
+                }
+        ;
+
+feature: 
+        OBJECTID '(' formal_list ':' TYPEID '{' expr '}' ';'
+                {
+                        $$ = method($1, $3, $5, $7);
+                }
+        | OBJECTID '(' ')' ':' TYPEID '{' expr '}' ';'
+                {
+                        $$ = method($1, nil_Formals(), $5, $7);
+                }
+        | OBJECTID ':' TYPEID assign_or_empty ';'
+                {
+                        $$ = attr($1, $3, $4);
+                }
+        | OBJECTID '(' formal_list ':' TYPEID '{' error '}' ';'
+                {
+                        
+                }
+        | OBJECTID '(' ')' ':' TYPEID '{' error '}' ';'
+                {
+                        yyerrok;
+                }
+        | OBJECTID ':' TYPEID error ';'
+                {
+                        yyerrok;
+                }
+        | OBJECTID error ';'
+                {
+
+                }
+        ;
+
+formal_list: 
+        formal ',' formal_list
+                {
+                        $$ = append_Formals(single_Formals($1), $3);
+                }
+        | formal ')'
                 {
                         $$ = single_Formals($1);
+                }
+        | error ')'
+                {
+                        
                 }
         ;
 
@@ -224,31 +237,59 @@ formal:
                 {
                         $$ = formal($1, $3);
                 }
-        | error
+        | OBJECTID ':' error
                 {
 
                 }
         ;
 
 expression_sem_list:
-        expression_sem_list expr ';'
+        expr ';' expression_sem_list
                 {
-                        $$ = append_Expressions($1,single_Expressions($2));
+                        $$ = append_Expressions(single_Expressions($1), $3);
                 }
-        | expr ';'
+        | expr ';' '}'
                 {
                         $$ = single_Expressions($1);
+                }
+        | error ';' '}'
+                {
+
+                }
+        | error '}'
+                {
+
+                }
+        | error ';'
+                {
+                        yyerrok;
+                }
+          expression_sem_list
+                {
+
                 }
         ;
 
 expression_list:
-        expr
+        expr ',' expression_list
+                {
+                        $$ = append_Expressions(single_Expressions($1), $3);
+                }
+        | expr ')'
                 {
                         $$ = single_Expressions($1);
                 }
-        | expression_list ',' expr
+        | error ')'
                 {
-                        $$ = append_Expressions($1, single_Expressions($3));
+
+                }
+        | error ','
+                {
+                        yyerrok;
+                }
+          expression_list
+                {
+
                 }
         ;
 
@@ -261,7 +302,7 @@ expr:
                 {
                         $$ = dispatch($1, $3, nil_Expressions());
                 }
-        | expr '.' OBJECTID '(' expression_list ')'
+        | expr '.' OBJECTID '(' expression_list
                 {
                         $$ = dispatch($1, $3, $5);
                 }
@@ -269,7 +310,7 @@ expr:
                 {
                         $$ = static_dispatch($1, $3, $5, nil_Expressions());
                 }
-        | expr '@' TYPEID '.' OBJECTID '(' expression_list ')'
+        | expr '@' TYPEID '.' OBJECTID '(' expression_list
                 {
                         $$ = static_dispatch($1, $3, $5, $7);
                 }
@@ -277,7 +318,7 @@ expr:
                 {
                         $$ = dispatch(object(idtable.add_string("self")),$1, nil_Expressions());
                 }
-        | OBJECTID '(' expression_list ')'
+        | OBJECTID '(' expression_list
                 {
                         $$ = dispatch(object(idtable.add_string("self")),$1,$3);
                 }
@@ -289,7 +330,11 @@ expr:
                 {
                         $$ = loop($2, $4);
                 }
-        | '{' expression_sem_list '}'
+        | WHILE error POOL
+                {
+                        yyerrok;
+                }
+        | '{' expression_sem_list
                 {
                         $$ = block($2);
                 }
@@ -365,34 +410,18 @@ expr:
                 {
                         $$ = bool_const($1);
                 }
-        | '{' error '}'
-                {
-                        
-                }
-        | error 
-                {
-
-                }
         ;
 
 let_init_in_expr:
-        OBJECTID ':' TYPEID no_expression IN expr
+        OBJECTID ':' TYPEID assign_or_empty IN expr %prec LETPREC
                 {
                         $$ = let($1,$3,$4,$6);
                 }
-        | OBJECTID ':' TYPEID ASSIGN expr IN expr
-                {
-                        $$ = let($1,$3,$5,$7);
-                }
-        | OBJECTID ':' TYPEID no_expression ',' let_init_in_expr
+        | OBJECTID ':' TYPEID assign_or_empty ',' let_init_in_expr
                 {
                         $$ = let($1,$3,$4,$6);
                 }
-        | OBJECTID ':' TYPEID ASSIGN expr ',' let_init_in_expr
-                {
-                        $$ = let($1,$3,$5,$7);
-                }
-        | error 
+        | error ',' let_init_in_expr
                 {
                         
                 }
@@ -420,10 +449,16 @@ case:
                 }
         ;
 
-no_expression:
-        {
-                $$ = no_expr();
-        }
+assign_or_empty:
+        ASSIGN expr
+                {
+                        $$ = $2;
+                }
+        | /* empty */
+                {
+                        $$ = no_expr();
+                }
+        ;
 
 /* end of grammar */
 %%

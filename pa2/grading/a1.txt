@@ -1,2 +1,83 @@
-"ifnothenbranch.test", line 3: syntax error at or near ELSE
-Compilation halted due to lex and parse errors
+#10
+_program
+  #10
+  _class
+    Main
+    Object
+    "homework.test"
+    (
+    #2
+    _attr
+      base
+      C
+      #2
+      _new
+        C
+      : _no_type
+    #3
+    _attr
+      derived
+      D
+      #3
+      _new
+        D
+      : _no_type
+    #9
+    _method
+      main
+      C
+      #8
+      _block
+        #6
+        _eq
+          #6
+          _object
+            base
+          : _no_type
+          #6
+          _static_dispatch
+            #6
+            _object
+              derived
+            : _no_type
+            C
+            init
+            (
+            #6
+            _int
+              1
+            : _no_type
+            #6
+            _bool
+              1
+            : _no_type
+            )
+          : _no_type
+        : _no_type
+        #7
+        _eq
+          #7
+          _object
+            derived
+          : _no_type
+          #7
+          _dispatch
+            #7
+            _object
+              base
+            : _no_type
+            init
+            (
+            #7
+            _int
+              2
+            : _no_type
+            #7
+            _bool
+              0
+            : _no_type
+            )
+          : _no_type
+        : _no_type
+      : _no_type
+    )

@@ -1,0 +1,10 @@
+class Main {
+    base : C <- new C;
+    derived: D <- new D;
+    main() : C {
+        {
+            base = derived@C.init(1, true);
+            derived = base.init(2, false);
+        }
+    };
+};

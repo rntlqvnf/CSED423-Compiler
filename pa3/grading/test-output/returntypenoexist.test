@@ -1,0 +1,22 @@
+1,17c1,3
+< #3
+< _program
+<   #3
+<   _class
+<     Main
+<     Object
+<     "../returntypenoexist.test"
+<     (
+<     #2
+<     _method
+<       main
+<       PinkElephant
+<       #2
+<       _new
+<         PinkElephant
+<       : _no_type
+<     )
+---
+> ../returntypenoexist.test:2: Undefined return type PinkElephant in method main.
+> ../returntypenoexist.test:2: 'new' used with undefined class PinkElephant.
+> Compilation halted due to static semantic errors.

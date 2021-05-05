@@ -1,0 +1,22 @@
+27,28c27,28
+<           : _no_type
+<         : _no_type
+---
+>           : Int
+>         : Int
+36c36
+<             : _no_type
+---
+>             : SELF_TYPE
+40,42c40,42
+<           : _no_type
+<         : _no_type
+<       : _no_type
+---
+>           : Int
+>         : Int
+>       : Int
+50c50
+<       : _no_type
+---
+>       : Int

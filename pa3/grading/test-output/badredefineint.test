@@ -1,0 +1,28 @@
+1,24c1,2
+< #4
+< _program
+<   #1
+<   _class
+<     Main
+<     Object
+<     "../badredefineint.test"
+<     (
+<     #1
+<     _method
+<       main
+<       Int
+<       #1
+<       _int
+<         0
+<       : _no_type
+<     )
+<   #4
+<   _class
+<     Int
+<     Object
+<     "../badredefineint.test"
+<     (
+<     )
+---
+> ../badredefineint.test:4: Redefinition of basic class Int.
+> Compilation halted due to static semantic errors.

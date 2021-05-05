@@ -1,0 +1,36 @@
+16c16
+<       : _no_type
+---
+>       : B
+26c26
+<         : _no_type
+---
+>         : B
+33c33
+<         : _no_type
+---
+>         : Int
+37c37
+<         : _no_type
+---
+>         : B
+41c41
+<         : _no_type
+---
+>         : B
+45c45
+<         : _no_type
+---
+>         : B
+47c47
+<       : _no_type
+---
+>       : Int
+78c78
+<       : _no_type
+---
+>       : Int
+109c109
+<       : _no_type
+---
+>       : Int

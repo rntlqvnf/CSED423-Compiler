@@ -1,0 +1,59 @@
+1,55c1,2
+< #5
+< _program
+<   #1
+<   _class
+<     Main
+<     Object
+<     "../caseidenticalbranch.test"
+<     (
+<     #1
+<     _method
+<       main
+<       Int
+<       #1
+<       _int
+<         0
+<       : _no_type
+<     )
+<   #5
+<   _class
+<     A
+<     Object
+<     "../caseidenticalbranch.test"
+<     (
+<     #4
+<     _method
+<       foo
+<       #4
+<       _formal
+<         x
+<         Int
+<       Object
+<       #4
+<       _typcase
+<         #4
+<         _object
+<           x
+<         : _no_type
+<         #4
+<         _branch
+<           a
+<           Int
+<           #4
+<           _object
+<             a
+<           : _no_type
+<         #4
+<         _branch
+<           b
+<           Int
+<           #4
+<           _object
+<             b
+<           : _no_type
+<       : _no_type
+<     )
+---
+> ../caseidenticalbranch.test:4: Duplicate branch Int in case statement.
+> Compilation halted due to static semantic errors.

@@ -1,0 +1,52 @@
+1,48c1,2
+< #6
+< _program
+<   #1
+<   _class
+<     Main
+<     Object
+<     "../anattributenamedself.test"
+<     (
+<     #1
+<     _method
+<       main
+<       Int
+<       #1
+<       _int
+<         0
+<       : _no_type
+<     )
+<   #6
+<   _class
+<     A
+<     Object
+<     "../anattributenamedself.test"
+<     (
+<     #4
+<     _attr
+<       self
+<       A
+<       #4
+<       _new
+<         A
+<       : _no_type
+<     #5
+<     _method
+<       foo
+<       #5
+<       _formal
+<         x
+<         String
+<       String
+<       #5
+<       _assign
+<         x
+<         #5
+<         _string
+<           "a boy named sue"
+<         : _no_type
+<       : _no_type
+<     )
+---
+> ../anattributenamedself.test:4: 'self' cannot be the name of an attribute.
+> Compilation halted due to static semantic errors.

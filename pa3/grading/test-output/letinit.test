@@ -1,0 +1,12 @@
+22c22
+<           : _no_type
+---
+>           : Int
+26,28c26,28
+<           : _no_type
+<         : _no_type
+<       : _no_type
+---
+>           : Int
+>         : Int
+>       : Int

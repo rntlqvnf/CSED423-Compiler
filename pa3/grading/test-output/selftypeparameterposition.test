@@ -1,0 +1,40 @@
+1,36c1,2
+< #6
+< _program
+<   #1
+<   _class
+<     Main
+<     Object
+<     "../selftypeparameterposition.test"
+<     (
+<     #1
+<     _method
+<       main
+<       Int
+<       #1
+<       _int
+<         0
+<       : _no_type
+<     )
+<   #6
+<   _class
+<     A
+<     Object
+<     "../selftypeparameterposition.test"
+<     (
+<     #4
+<     _method
+<       foo
+<       #4
+<       _formal
+<         x
+<         SELF_TYPE
+<       Object
+<       #4
+<       _object
+<         x
+<       : _no_type
+<     )
+---
+> ../selftypeparameterposition.test:4: Formal parameter x cannot have type SELF_TYPE.
+> Compilation halted due to static semantic errors.

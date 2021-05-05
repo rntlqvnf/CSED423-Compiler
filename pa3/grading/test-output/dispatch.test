@@ -1,0 +1,38 @@
+16c16
+<       : _no_type
+---
+>       : Int
+47c47
+<       : _no_type
+---
+>       : SELF_TYPE
+66c66
+<         : _no_type
+---
+>         : B
+72c72
+<           : _no_type
+---
+>           : SELF_TYPE
+78c78
+<           : _no_type
+---
+>           : Int
+82c82
+<           : _no_type
+---
+>           : B
+86c86
+<           : _no_type
+---
+>           : B
+90c90
+<           : _no_type
+---
+>           : B
+92,93c92,93
+<         : _no_type
+<       : _no_type
+---
+>         : A
+>       : A

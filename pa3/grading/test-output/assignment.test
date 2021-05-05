@@ -1,0 +1,34 @@
+42,43c42,43
+<           : _no_type
+<         : _no_type
+---
+>           : Int
+>         : Int
+50,51c50,51
+<           : _no_type
+<         : _no_type
+---
+>           : Int
+>         : Int
+58,59c58,59
+<           : _no_type
+<         : _no_type
+---
+>           : String
+>         : String
+66,68c66,68
+<           : _no_type
+<         : _no_type
+<       : _no_type
+---
+>           : Foo
+>         : Foo
+>       : Foo
+76c76
+<       : _no_type
+---
+>       : String
+91c91
+<       : _no_type
+---
+>       : Int

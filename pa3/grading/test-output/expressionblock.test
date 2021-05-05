@@ -1,0 +1,22 @@
+16c16
+<       : _no_type
+---
+>       : Int
+33c33
+<         : _no_type
+---
+>         : SELF_TYPE
+37c37
+<         : _no_type
+---
+>         : String
+41c41
+<         : _no_type
+---
+>         : Bool
+45,46c45,46
+<         : _no_type
+<       : _no_type
+---
+>         : Int
+>       : Int

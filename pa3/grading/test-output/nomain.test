@@ -1,0 +1,13 @@
+1,9c1,2
+< #3
+< _program
+<   #3
+<   _class
+<     A
+<     Object
+<     "../nomain.test"
+<     (
+<     )
+---
+> Class Main is not defined.
+> Compilation halted due to static semantic errors.

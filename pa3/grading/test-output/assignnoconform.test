@@ -1,0 +1,53 @@
+1,49c1,2
+< #8
+< _program
+<   #5
+<   _class
+<     Main
+<     Object
+<     "../assignnoconform.test"
+<     (
+<     #2
+<     _attr
+<       a
+<       A
+<       #2
+<       _no_expr
+<       : _no_type
+<     #3
+<     _attr
+<       b
+<       B
+<       #3
+<       _no_expr
+<       : _no_type
+<     #4
+<     _method
+<       main
+<       Object
+<       #4
+<       _assign
+<         b
+<         #4
+<         _new
+<           A
+<         : _no_type
+<       : _no_type
+<     )
+<   #7
+<   _class
+<     A
+<     Object
+<     "../assignnoconform.test"
+<     (
+<     )
+<   #8
+<   _class
+<     B
+<     A
+<     "../assignnoconform.test"
+<     (
+<     )
+---
+> ../assignnoconform.test:4: Type A of assigned expression does not conform to declared type B of identifier b.
+> Compilation halted due to static semantic errors.

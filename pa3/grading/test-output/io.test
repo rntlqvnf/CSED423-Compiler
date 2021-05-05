@@ -1,0 +1,46 @@
+34c34
+<           : _no_type
+---
+>           : SELF_TYPE
+40c40
+<           : _no_type
+---
+>           : String
+42c42
+<         : _no_type
+---
+>         : SELF_TYPE
+48c48
+<           : _no_type
+---
+>           : SELF_TYPE
+54c54
+<           : _no_type
+---
+>           : Int
+56c56
+<         : _no_type
+---
+>         : SELF_TYPE
+65c65
+<             : _no_type
+---
+>             : SELF_TYPE
+69,70c69,70
+<           : _no_type
+<         : _no_type
+---
+>           : String
+>         : String
+79c79
+<             : _no_type
+---
+>             : SELF_TYPE
+83,85c83,85
+<           : _no_type
+<         : _no_type
+<       : _no_type
+---
+>           : Int
+>         : Int
+>       : Int

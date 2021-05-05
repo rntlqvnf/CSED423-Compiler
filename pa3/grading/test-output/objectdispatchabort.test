@@ -1,0 +1,12 @@
+18c18
+<         : _no_type
+---
+>         : Object
+22c22
+<       : _no_type
+---
+>       : Object
+37c37
+<       : _no_type
+---
+>       : Int

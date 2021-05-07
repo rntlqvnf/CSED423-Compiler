@@ -1,21 +1,2 @@
-1,17c1,2
-< #1
-< _program
-<   #1
-<   _class
-<     Main
-<     SELF_TYPE
-<     "../inheritsselftype.test"
-<     (
-<     #1
-<     _method
-<       main
-<       Int
-<       #1
-<       _int
-<         0
-<       : _no_type
-<     )
----
-> ../inheritsselftype.test:1: Class Main cannot inherit class SELF_TYPE.
-> Compilation halted due to static semantic errors.
+2d1
+< ../inheritsselftype.test:1: Class Main inherits from an undefined class SELF_TYPE.

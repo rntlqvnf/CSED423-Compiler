@@ -1,34 +1,58 @@
-20c20
-<           : _no_type
----
+Segmentation fault
+0a1,56
+> #4
+> _program
+>   #4
+>   _class
+>     Main
+>     Object
+>     "../basic.test"
+>     (
+>     #3
+>     _method
+>       main
+>       Object
+>       #3
+>       _block
+>         #2
+>         _dispatch
+>           #2
+>           _int
+>             5
 >           : Int
-24c24
-<         : _no_type
----
+>           copy
+>           (
+>           )
 >         : Int
-30c30
-<           : _no_type
----
+>         #2
+>         _dispatch
+>           #2
+>           _string
+>             "test"
 >           : String
-34c34
-<         : _no_type
----
+>           copy
+>           (
+>           )
 >         : String
-40c40
-<           : _no_type
----
+>         #2
+>         _dispatch
+>           #2
+>           _bool
+>             1
 >           : Bool
-44c44
-<         : _no_type
----
+>           copy
+>           (
+>           )
 >         : Bool
-50c50
-<           : _no_type
----
+>         #3
+>         _dispatch
+>           #3
+>           _string
+>             "test"
 >           : String
-54,55c54,55
-<         : _no_type
-<       : _no_type
----
+>           length
+>           (
+>           )
 >         : Int
 >       : Int
+>     )

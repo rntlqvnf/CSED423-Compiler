@@ -1,254 +1,454 @@
-18c18
-<         : _no_type
+Segmentation fault
+1,3c1,447
+< ../hairyscary.cl.test:12: Method doh is redefined in the current class.
+< ../hairyscary.cl.test:12: Method doh is redefined in the current class.
+< ../hairyscary.cl.test:8: Identifier a declared type Razz but assigned type 
+\ No newline at end of file
 ---
+> #62
+> _program
+>   #14
+>   _class
+>     Foo
+>     Bazz
+>     "../hairyscary.cl.test"
+>     (
+>     #8
+>     _attr
+>       a
+>       Razz
+>       #8
+>       _typcase
+>         #4
+>         _object
+>           self
 >         : SELF_TYPE
-26c26
-<           : _no_type
----
+>         #5
+>         _branch
+>           n
+>           Razz
+>           #5
+>           _new
+>             Bar
 >           : Bar
-34c34
-<           : _no_type
----
+>         #6
+>         _branch
+>           n
+>           Foo
+>           #6
+>           _new
+>             Razz
 >           : Razz
-42,43c42,43
-<           : _no_type
-<       : _no_type
----
+>         #7
+>         _branch
+>           n
+>           Bar
+>           #7
+>           _object
+>             n
 >           : Bar
 >       : Razz
-59c59
-<               : _no_type
----
+>     #10
+>     _attr
+>       b
+>       Int
+>       #10
+>       _plus
+>         #10
+>         _plus
+>           #10
+>           _plus
+>             #10
+>             _dispatch
+>               #10
+>               _object
+>                 a
 >               : Razz
-63c63
-<             : _no_type
----
+>               doh
+>               (
+>               )
 >             : Int
-69c69
-<               : _no_type
----
+>             #10
+>             _dispatch
+>               #10
+>               _object
+>                 g
 >               : Foo
-73,74c73,74
-<             : _no_type
-<           : _no_type
----
+>               doh
+>               (
+>               )
 >             : Int
 >           : Int
-80c80
-<             : _no_type
----
+>           #10
+>           _dispatch
+>             #10
+>             _object
+>               self
 >             : SELF_TYPE
-84,85c84,85
-<           : _no_type
-<         : _no_type
----
+>             doh
+>             (
+>             )
 >           : Int
 >         : Int
-91c91
-<           : _no_type
----
+>         #10
+>         _dispatch
+>           #10
+>           _object
+>             self
 >           : SELF_TYPE
-95,96c95,96
-<         : _no_type
-<       : _no_type
----
+>           printh
+>           (
+>           )
 >         : Int
 >       : Int
-108c108
-<         : _no_type
----
+>     #12
+>     _method
+>       doh
+>       Int
+>       #12
+>       _let
+>         i
+>         Int
+>         #12
+>         _object
+>           h
 >         : Int
-119c119
-<               : _no_type
----
+>         #12
+>         _block
+>           #12
+>           _assign
+>             h
+>             #12
+>             _plus
+>               #12
+>               _object
+>                 h
 >               : Int
-123,125c123,125
-<               : _no_type
-<             : _no_type
-<           : _no_type
----
+>               #12
+>               _int
+>                 2
 >               : Int
 >             : Int
 >           : Int
-129,131c129,131
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>           #12
+>           _object
+>             i
 >           : Int
 >         : Int
 >       : Int
-148c148
-<         : _no_type
----
+>     )
+>   #21
+>   _class
+>     Bar
+>     Razz
+>     "../hairyscary.cl.test"
+>     (
+>     #18
+>     _attr
+>       c
+>       Int
+>       #18
+>       _dispatch
+>         #18
+>         _object
+>           self
 >         : SELF_TYPE
-152c152
-<       : _no_type
----
+>         doh
+>         (
+>         )
 >       : Int
-162c162
-<         : _no_type
----
+>     #20
+>     _attr
+>       d
+>       Object
+>       #20
+>       _dispatch
+>         #20
+>         _object
+>           self
 >         : SELF_TYPE
-166c166
-<       : _no_type
----
+>         printh
+>         (
+>         )
 >       : Int
-183c183
-<         : _no_type
----
+>     )
+>   #33
+>   _class
+>     Razz
+>     Foo
+>     "../hairyscary.cl.test"
+>     (
+>     #29
+>     _attr
+>       e
+>       Bar
+>       #29
+>       _typcase
+>         #26
+>         _object
+>           self
 >         : SELF_TYPE
-191c191
-<           : _no_type
----
+>         #27
+>         _branch
+>           n
+>           Razz
+>           #27
+>           _new
+>             Bar
 >           : Bar
-199,200c199,200
-<           : _no_type
-<       : _no_type
----
+>         #28
+>         _branch
+>           n
+>           Bar
+>           #28
+>           _object
+>             n
 >           : Bar
 >       : Bar
-218c218
-<                 : _no_type
----
+>     #31
+>     _attr
+>       f
+>       Int
+>       #31
+>       _plus
+>         #31
+>         _plus
+>           #31
+>           _plus
+>             #31
+>             _plus
+>               #31
+>               _static_dispatch
+>                 #31
+>                 _object
+>                   a
 >                 : Razz
-223c223
-<               : _no_type
----
+>                 Bazz
+>                 doh
+>                 (
+>                 )
 >               : Int
-229c229
-<                 : _no_type
----
+>               #31
+>               _dispatch
+>                 #31
+>                 _object
+>                   g
 >                 : Foo
-233,234c233,234
-<               : _no_type
-<             : _no_type
----
+>                 doh
+>                 (
+>                 )
 >               : Int
 >             : Int
-240c240
-<               : _no_type
----
+>             #31
+>             _dispatch
+>               #31
+>               _object
+>                 e
 >               : Bar
-244,245c244,245
-<             : _no_type
-<           : _no_type
----
+>               doh
+>               (
+>               )
 >             : Int
 >           : Int
-251c251
-<             : _no_type
----
+>           #31
+>           _dispatch
+>             #31
+>             _object
+>               self
 >             : SELF_TYPE
-255,256c255,256
-<           : _no_type
-<         : _no_type
----
+>             doh
+>             (
+>             )
 >           : Int
 >         : Int
-262c262
-<           : _no_type
----
+>         #31
+>         _dispatch
+>           #31
+>           _object
+>             self
 >           : SELF_TYPE
-266,267c266,267
-<         : _no_type
-<       : _no_type
----
+>           printh
+>           (
+>           )
 >         : Int
 >       : Int
-282c282
-<       : _no_type
----
+>     )
+>   #51
+>   _class
+>     Bazz
+>     IO
+>     "../hairyscary.cl.test"
+>     (
+>     #37
+>     _attr
+>       h
+>       Int
+>       #37
+>       _int
+>         1
 >       : Int
-292c292
-<         : _no_type
----
+>     #44
+>     _attr
+>       g
+>       Foo
+>       #44
+>       _typcase
+>         #39
+>         _object
+>           self
 >         : SELF_TYPE
-300c300
-<           : _no_type
----
+>         #40
+>         _branch
+>           n
+>           Bazz
+>           #40
+>           _new
+>             Foo
 >           : Foo
-308c308
-<           : _no_type
----
+>         #41
+>         _branch
+>           n
+>           Razz
+>           #41
+>           _new
+>             Bar
 >           : Bar
-316c316
-<           : _no_type
----
+>         #42
+>         _branch
+>           n
+>           Foo
+>           #42
+>           _new
+>             Razz
 >           : Razz
-324,325c324,325
-<           : _no_type
-<       : _no_type
----
+>         #43
+>         _branch
+>           n
+>           Bar
+>           #43
+>           _object
+>             n
 >           : Bar
 >       : Foo
-335c335
-<         : _no_type
----
+>     #46
+>     _attr
+>       i
+>       Object
+>       #46
+>       _dispatch
+>         #46
+>         _object
+>           self
 >         : SELF_TYPE
-339c339
-<       : _no_type
----
+>         printh
+>         (
+>         )
 >       : Int
-351c351
-<           : _no_type
----
+>     #48
+>     _method
+>       printh
+>       Int
+>       #48
+>       _block
+>         #48
+>         _dispatch
+>           #48
+>           _object
+>             self
 >           : SELF_TYPE
-357c357
-<           : _no_type
----
+>           out_int
+>           (
+>           #48
+>           _object
+>             h
 >           : Int
-359c359
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-363,364c363,364
-<         : _no_type
-<       : _no_type
----
+>         #48
+>         _int
+>           0
 >         : Int
 >       : Int
-376c376
-<         : _no_type
----
+>     #50
+>     _method
+>       doh
+>       Int
+>       #50
+>       _let
+>         i
+>         Int
+>         #50
+>         _object
+>           h
 >         : Int
-387c387
-<               : _no_type
----
+>         #50
+>         _block
+>           #50
+>           _assign
+>             h
+>             #50
+>             _plus
+>               #50
+>               _object
+>                 h
 >               : Int
-391,393c391,393
-<               : _no_type
-<             : _no_type
-<           : _no_type
----
+>               #50
+>               _int
+>                 1
 >               : Int
 >             : Int
 >           : Int
-397,399c397,399
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>           #50
+>           _object
+>             i
 >           : Int
 >         : Int
 >       : Int
-414c414
-<       : _no_type
----
+>     )
+>   #62
+>   _class
+>     Main
+>     Object
+>     "../hairyscary.cl.test"
+>     (
+>     #55
+>     _attr
+>       a
+>       Bazz
+>       #55
+>       _new
+>         Bazz
 >       : Bazz
-422c422
-<       : _no_type
----
+>     #56
+>     _attr
+>       b
+>       Foo
+>       #56
+>       _new
+>         Foo
 >       : Foo
-430c430
-<       : _no_type
----
+>     #57
+>     _attr
+>       c
+>       Razz
+>       #57
+>       _new
+>         Razz
 >       : Razz
-438c438
-<       : _no_type
----
+>     #58
+>     _attr
+>       d
+>       Bar
+>       #58
+>       _new
+>         Bar
 >       : Bar
-446c446
-<       : _no_type
----
+>     #60
+>     _method
+>       main
+>       String
+>       #60
+>       _string
+>         "do nothing"
 >       : String
+>     )

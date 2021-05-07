@@ -1,22 +1,8 @@
-1,17c1,3
-< #3
-< _program
-<   #3
-<   _class
-<     Main
-<     Object
-<     "../returntypenoexist.test"
-<     (
-<     #2
-<     _method
-<       main
-<       PinkElephant
-<       #2
-<       _new
-<         PinkElephant
-<       : _no_type
-<     )
+1,4c1,2
+< ../returntypenoexist.test:2: Type PinkElephant is not defined.
+< ../returntypenoexist.test:3: Method main is not defined.
+< PinkElephant:2: Type ../returntypenoexist.test is not defined.
+< ../returntypenoexist.test:2: The declared return type of method main is PinkElephant but the type of the method body is Object .
 ---
 > ../returntypenoexist.test:2: Undefined return type PinkElephant in method main.
 > ../returntypenoexist.test:2: 'new' used with undefined class PinkElephant.
-> Compilation halted due to static semantic errors.

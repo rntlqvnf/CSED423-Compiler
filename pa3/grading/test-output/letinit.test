@@ -1,12 +1,34 @@
-22c22
-<           : _no_type
+Segmentation fault
+1c1,29
+< ../letinit.test:4: The declared return type of method main is Object but the type of the method body is 
+\ No newline at end of file
 ---
+> #5
+> _program
+>   #5
+>   _class
+>     Main
+>     IO
+>     "../letinit.test"
+>     (
+>     #4
+>     _method
+>       main
+>       Object
+>       #4
+>       _block
+>         #3
+>         _let
+>           x
+>           Int
+>           #3
+>           _int
+>             5
 >           : Int
-26,28c26,28
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>           #3
+>           _object
+>             x
 >           : Int
 >         : Int
 >       : Int
+>     )

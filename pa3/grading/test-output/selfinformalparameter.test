@@ -1,48 +1,6 @@
-1,44c1,2
-< #6
-< _program
-<   #1
-<   _class
-<     Main
-<     Object
-<     "../selfinformalparameter.test"
-<     (
-<     #1
-<     _method
-<       main
-<       Int
-<       #1
-<       _int
-<         0
-<       : _no_type
-<     )
-<   #6
-<   _class
-<     A
-<     Object
-<     "../selfinformalparameter.test"
-<     (
-<     #4
-<     _attr
-<       x
-<       A
-<       #4
-<       _new
-<         A
-<       : _no_type
-<     #5
-<     _method
-<       foo
-<       #5
-<       _formal
-<         self
-<         String
-<       String
-<       #5
-<       _string
-<         "hoo-ah"
-<       : _no_type
-<     )
+1,3c1
+< ../selfinformalparameter.test:5: self is not allowed to appear in a formal binding.
+< A:4: Type ../selfinformalparameter.test is not defined.
+< ../selfinformalparameter.test:4: Identifier x declared type A but assigned type Object .
 ---
 > ../selfinformalparameter.test:5: 'self' cannot be the name of a formal parameter.
-> Compilation halted due to static semantic errors.

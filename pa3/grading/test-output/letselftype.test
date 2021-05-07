@@ -1,14 +1,42 @@
-29,30c29,30
-<             : _no_type
-<           : _no_type
+Segmentation fault
+1c1,37
+< ../letselftype.test:6: The declared return type of method main is Object but the type of the method body is 
+\ No newline at end of file
 ---
+> #7
+> _program
+>   #7
+>   _class
+>     Main
+>     IO
+>     "../letselftype.test"
+>     (
+>     #6
+>     _method
+>       main
+>       Object
+>       #6
+>       _block
+>         #5
+>         _let
+>           y
+>           SELF_TYPE
+>           #4
+>           _let
+>             x
+>             SELF_TYPE
+>             #4
+>             _no_expr
+>             : _no_type
+>             #4
+>             _object
+>               x
 >             : SELF_TYPE
 >           : SELF_TYPE
-34,36c34,36
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>           #5
+>           _object
+>             y
 >           : SELF_TYPE
 >         : SELF_TYPE
 >       : SELF_TYPE
+>     )

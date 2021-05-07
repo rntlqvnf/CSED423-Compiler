@@ -1,36 +1,115 @@
-16c16
-<       : _no_type
+1,3c1,110
+< B:2: Type ../staticdispatch.test is not defined.
+< ../staticdispatch.test:2: Identifier b declared type B but assigned type Object .
+< Compilation halted due to static semantic errors.
 ---
+> #18
+> _program
+>   #4
+>   _class
+>     Main
+>     Object
+>     "../staticdispatch.test"
+>     (
+>     #2
+>     _attr
+>       b
+>       B
+>       #2
+>       _new
+>         B
 >       : B
-26c26
-<         : _no_type
----
+>     #3
+>     _method
+>       main
+>       Object
+>       #3
+>       _static_dispatch
+>         #3
+>         _object
+>           b
 >         : B
-33c33
-<         : _no_type
----
+>         A
+>         foo
+>         (
+>         #3
+>         _int
+>           5
 >         : Int
-37c37
-<         : _no_type
----
+>         #3
+>         _object
+>           b
 >         : B
-41c41
-<         : _no_type
----
+>         #3
+>         _object
+>           b
 >         : B
-45c45
-<         : _no_type
----
+>         #3
+>         _object
+>           b
 >         : B
-47c47
-<       : _no_type
----
+>         )
 >       : Int
-78c78
-<       : _no_type
----
+>     )
+>   #11
+>   _class
+>     A
+>     Object
+>     "../staticdispatch.test"
+>     (
+>     #9
+>     _method
+>       foo
+>       #7
+>       _formal
+>         a
+>         Int
+>       #7
+>       _formal
+>         b
+>         B
+>       #7
+>       _formal
+>         c
+>         A
+>       #7
+>       _formal
+>         d
+>         B
+>       Int
+>       #8
+>       _int
+>         5
 >       : Int
-109c109
-<       : _no_type
----
+>     )
+>   #18
+>   _class
+>     B
+>     A
+>     "../staticdispatch.test"
+>     (
+>     #17
+>     _method
+>       foo
+>       #15
+>       _formal
+>         a
+>         Int
+>       #15
+>       _formal
+>         b
+>         B
+>       #15
+>       _formal
+>         c
+>         A
+>       #15
+>       _formal
+>         d
+>         B
+>       Int
+>       #16
+>       _int
+>         6
 >       : Int
+>     )

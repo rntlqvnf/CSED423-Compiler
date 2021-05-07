@@ -1,29 +1,5 @@
-1,25c1,2
-< #4
-< _program
-<   #4
-<   _class
-<     Main
-<     Object
-<     "../letself.test"
-<     (
-<     #3
-<     _method
-<       main
-<       Int
-<       #3
-<       _let
-<         self
-<         Int
-<         #3
-<         _no_expr
-<         : _no_type
-<         #3
-<         _int
-<           0
-<         : _no_type
-<       : _no_type
-<     )
+1,2c1
+< ../letself.test:3: self is not allowed to appear in a let binding.
+< ../letself.test:3: The declared return type of method main is Int but the type of the method body is Object .
 ---
 > ../letself.test:3: 'self' cannot be bound in a 'let' expression.
-> Compilation halted due to static semantic errors.

@@ -1,22 +1,53 @@
-27,28c27,28
-<           : _no_type
-<         : _no_type
----
+Segmentation fault
+0a1,51
+> #7
+> _program
+>   #7
+>   _class
+>     Main
+>     IO
+>     "../neg.test"
+>     (
+>     #2
+>     _attr
+>       x
+>       Bool
+>       #2
+>       _no_expr
+>       : _no_type
+>     #5
+>     _method
+>       main
+>       Object
+>       #5
+>       _block
+>         #4
+>         _neg
+>           #4
+>           _int
+>             7
 >           : Int
 >         : Int
-36c36
-<             : _no_type
----
+>         #4
+>         _neg
+>           #4
+>           _dispatch
+>             #4
+>             _object
+>               self
 >             : SELF_TYPE
-40,42c40,42
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>             foo
+>             (
+>             )
 >           : Int
 >         : Int
 >       : Int
-50c50
-<       : _no_type
----
+>     #6
+>     _method
+>       foo
+>       Int
+>       #6
+>       _int
+>         4
 >       : Int
+>     )

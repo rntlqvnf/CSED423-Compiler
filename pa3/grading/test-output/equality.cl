@@ -1,796 +1,973 @@
-16c16
-<       : _no_type
----
+Segmentation fault
+0a1,971
+> #83
+> _program
+>   #83
+>   _class
+>     Main
+>     IO
+>     "../equality.cl"
+>     (
+>     #2
+>     _attr
+>       c
+>       String
+>       #2
+>       _string
+>         "Correct\n"
 >       : String
-24c24
-<       : _no_type
----
+>     #3
+>     _attr
+>       w
+>       String
+>       #3
+>       _string
+>         "Wrong\n"
 >       : String
-36c36
-<           : _no_type
----
+>     #82
+>     _method
+>       main
+>       SELF_TYPE
+>       #81
+>       _block
+>         #6
+>         _dispatch
+>           #6
+>           _object
+>             self
 >           : SELF_TYPE
-42c42
-<           : _no_type
----
+>           out_string
+>           (
+>           #6
+>           _string
+>             "Bool1 Eq: "
 >           : String
-44c44
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-52c52
-<             : _no_type
----
+>         #10
+>         _cond
+>           #7
+>           _eq
+>             #7
+>             _bool
+>               1
 >             : Bool
-58c58
-<               : _no_type
----
+>             #7
+>             _dispatch
+>               #7
+>               _bool
+>                 1
 >               : Bool
-62,63c62,63
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Bool
 >           : Bool
-69c69
-<             : _no_type
----
+>           #8
+>           _dispatch
+>             #8
+>             _object
+>               self
 >             : SELF_TYPE
-75c75
-<             : _no_type
----
+>             out_string
+>             (
+>             #8
+>             _object
+>               c
 >             : String
-77c77
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-83c83
-<             : _no_type
----
+>           #9
+>           _dispatch
+>             #9
+>             _object
+>               self
 >             : SELF_TYPE
-89c89
-<             : _no_type
----
+>             out_string
+>             (
+>             #9
+>             _object
+>               w
 >             : String
-91,92c91,92
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-98c98
-<           : _no_type
----
+>         #11
+>         _dispatch
+>           #11
+>           _object
+>             self
 >           : SELF_TYPE
-104c104
-<           : _no_type
----
+>           out_string
+>           (
+>           #11
+>           _string
+>             "Bool2 Eq: "
 >           : String
-106c106
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-114c114
-<             : _no_type
----
+>         #15
+>         _cond
+>           #12
+>           _eq
+>             #12
+>             _bool
+>               0
 >             : Bool
-120c120
-<               : _no_type
----
+>             #12
+>             _dispatch
+>               #12
+>               _bool
+>                 0
 >               : Bool
-124,125c124,125
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Bool
 >           : Bool
-131c131
-<             : _no_type
----
+>           #13
+>           _dispatch
+>             #13
+>             _object
+>               self
 >             : SELF_TYPE
-137c137
-<             : _no_type
----
+>             out_string
+>             (
+>             #13
+>             _object
+>               c
 >             : String
-139c139
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-145c145
-<             : _no_type
----
+>           #14
+>           _dispatch
+>             #14
+>             _object
+>               self
 >             : SELF_TYPE
-151c151
-<             : _no_type
----
+>             out_string
+>             (
+>             #14
+>             _object
+>               w
 >             : String
-153,154c153,154
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-160c160
-<           : _no_type
----
+>         #16
+>         _dispatch
+>           #16
+>           _object
+>             self
 >           : SELF_TYPE
-166c166
-<           : _no_type
----
+>           out_string
+>           (
+>           #16
+>           _string
+>             "Bool3 Eq: "
 >           : String
-168c168
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-176c176
-<             : _no_type
----
+>         #20
+>         _cond
+>           #17
+>           _eq
+>             #17
+>             _bool
+>               0
 >             : Bool
-182c182
-<               : _no_type
----
+>             #17
+>             _dispatch
+>               #17
+>               _bool
+>                 1
 >               : Bool
-186,187c186,187
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Bool
 >           : Bool
-193c193
-<             : _no_type
----
+>           #18
+>           _dispatch
+>             #18
+>             _object
+>               self
 >             : SELF_TYPE
-199c199
-<             : _no_type
----
+>             out_string
+>             (
+>             #18
+>             _object
+>               w
 >             : String
-201c201
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-207c207
-<             : _no_type
----
+>           #19
+>           _dispatch
+>             #19
+>             _object
+>               self
 >             : SELF_TYPE
-213c213
-<             : _no_type
----
+>             out_string
+>             (
+>             #19
+>             _object
+>               c
 >             : String
-215,216c215,216
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-222c222
-<           : _no_type
----
+>         #21
+>         _dispatch
+>           #21
+>           _object
+>             self
 >           : SELF_TYPE
-228c228
-<           : _no_type
----
+>           out_string
+>           (
+>           #21
+>           _string
+>             "Bool4 Eq: "
 >           : String
-230c230
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-238c238
-<             : _no_type
----
+>         #25
+>         _cond
+>           #22
+>           _eq
+>             #22
+>             _bool
+>               1
 >             : Bool
-244c244
-<               : _no_type
----
+>             #22
+>             _dispatch
+>               #22
+>               _bool
+>                 0
 >               : Bool
-248,249c248,249
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Bool
 >           : Bool
-255c255
-<             : _no_type
----
+>           #23
+>           _dispatch
+>             #23
+>             _object
+>               self
 >             : SELF_TYPE
-261c261
-<             : _no_type
----
+>             out_string
+>             (
+>             #23
+>             _object
+>               w
 >             : String
-263c263
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-269c269
-<             : _no_type
----
+>           #24
+>           _dispatch
+>             #24
+>             _object
+>               self
 >             : SELF_TYPE
-275c275
-<             : _no_type
----
+>             out_string
+>             (
+>             #24
+>             _object
+>               c
 >             : String
-277,278c277,278
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-284c284
-<           : _no_type
----
+>         #26
+>         _dispatch
+>           #26
+>           _object
+>             self
 >           : SELF_TYPE
-290c290
-<           : _no_type
----
+>           out_string
+>           (
+>           #26
+>           _string
+>             "Bool Neg: "
 >           : String
-292c292
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-302c302
-<               : _no_type
----
+>         #30
+>         _cond
+>           #28
+>           _comp
+>             #27
+>             _eq
+>               #27
+>               _bool
+>                 1
 >               : Bool
-308c308
-<                 : _no_type
----
+>               #27
+>               _dispatch
+>                 #27
+>                 _bool
+>                   1
 >                 : Bool
-312,314c312,314
-<               : _no_type
-<             : _no_type
-<           : _no_type
----
+>                 copy
+>                 (
+>                 )
 >               : Bool
 >             : Bool
 >           : Bool
-320c320
-<             : _no_type
----
+>           #28
+>           _dispatch
+>             #28
+>             _object
+>               self
 >             : SELF_TYPE
-326c326
-<             : _no_type
----
+>             out_string
+>             (
+>             #28
+>             _object
+>               w
 >             : String
-328c328
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-334c334
-<             : _no_type
----
+>           #29
+>           _dispatch
+>             #29
+>             _object
+>               self
 >             : SELF_TYPE
-340c340
-<             : _no_type
----
+>             out_string
+>             (
+>             #29
+>             _object
+>               c
 >             : String
-342,343c342,343
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-349c349
-<           : _no_type
----
+>         #31
+>         _dispatch
+>           #31
+>           _object
+>             self
 >           : SELF_TYPE
-355c355
-<           : _no_type
----
+>           out_string
+>           (
+>           #31
+>           _string
+>             "Int1 Eq: "
 >           : String
-357c357
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-365c365
-<             : _no_type
----
+>         #35
+>         _cond
+>           #32
+>           _eq
+>             #32
+>             _int
+>               5
 >             : Int
-371c371
-<               : _no_type
----
+>             #32
+>             _dispatch
+>               #32
+>               _int
+>                 5
 >               : Int
-375,376c375,376
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Int
 >           : Bool
-382c382
-<             : _no_type
----
+>           #33
+>           _dispatch
+>             #33
+>             _object
+>               self
 >             : SELF_TYPE
-388c388
-<             : _no_type
----
+>             out_string
+>             (
+>             #33
+>             _object
+>               c
 >             : String
-390c390
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-396c396
-<             : _no_type
----
+>           #34
+>           _dispatch
+>             #34
+>             _object
+>               self
 >             : SELF_TYPE
-402c402
-<             : _no_type
----
+>             out_string
+>             (
+>             #34
+>             _object
+>               w
 >             : String
-404,405c404,405
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-411c411
-<           : _no_type
----
+>         #36
+>         _dispatch
+>           #36
+>           _object
+>             self
 >           : SELF_TYPE
-417c417
-<           : _no_type
----
+>           out_string
+>           (
+>           #36
+>           _string
+>             "Int2 Eq: "
 >           : String
-419c419
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-427c427
-<             : _no_type
----
+>         #40
+>         _cond
+>           #37
+>           _eq
+>             #37
+>             _int
+>               7
 >             : Int
-433c433
-<               : _no_type
----
+>             #37
+>             _dispatch
+>               #37
+>               _int
+>                 3
 >               : Int
-437,438c437,438
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Int
 >           : Bool
-444c444
-<             : _no_type
----
+>           #38
+>           _dispatch
+>             #38
+>             _object
+>               self
 >             : SELF_TYPE
-450c450
-<             : _no_type
----
+>             out_string
+>             (
+>             #38
+>             _object
+>               w
 >             : String
-452c452
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-458c458
-<             : _no_type
----
+>           #39
+>           _dispatch
+>             #39
+>             _object
+>               self
 >             : SELF_TYPE
-464c464
-<             : _no_type
----
+>             out_string
+>             (
+>             #39
+>             _object
+>               c
 >             : String
-466,467c466,467
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-473c473
-<           : _no_type
----
+>         #41
+>         _dispatch
+>           #41
+>           _object
+>             self
 >           : SELF_TYPE
-479c479
-<           : _no_type
----
+>           out_string
+>           (
+>           #41
+>           _string
+>             "Neg Int1: "
 >           : String
-481c481
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-491,492c491,492
-<               : _no_type
-<             : _no_type
----
+>         #45
+>         _cond
+>           #42
+>           _lt
+>             #42
+>             _neg
+>               #42
+>               _int
+>                 3
 >               : Int
 >             : Int
-500c500
-<                 : _no_type
----
+>             #42
+>             _neg
+>               #42
+>               _dispatch
+>                 #42
+>                 _int
+>                   5
 >                 : Int
-504,506c504,506
-<               : _no_type
-<             : _no_type
-<           : _no_type
----
+>                 copy
+>                 (
+>                 )
 >               : Int
 >             : Int
 >           : Bool
-512c512
-<             : _no_type
----
+>           #43
+>           _dispatch
+>             #43
+>             _object
+>               self
 >             : SELF_TYPE
-518c518
-<             : _no_type
----
+>             out_string
+>             (
+>             #43
+>             _object
+>               w
 >             : String
-520c520
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-526c526
-<             : _no_type
----
+>           #44
+>           _dispatch
+>             #44
+>             _object
+>               self
 >             : SELF_TYPE
-532c532
-<             : _no_type
----
+>             out_string
+>             (
+>             #44
+>             _object
+>               c
 >             : String
-534,535c534,535
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-541c541
-<           : _no_type
----
+>         #46
+>         _dispatch
+>           #46
+>           _object
+>             self
 >           : SELF_TYPE
-547c547
-<           : _no_type
----
+>           out_string
+>           (
+>           #46
+>           _string
+>             "Neg Int2: "
 >           : String
-549c549
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-559,560c559,560
-<               : _no_type
-<             : _no_type
----
+>         #50
+>         _cond
+>           #47
+>           _leq
+>             #47
+>             _neg
+>               #47
+>               _int
+>                 6
 >               : Int
 >             : Int
-568c568
-<                 : _no_type
----
+>             #47
+>             _neg
+>               #47
+>               _dispatch
+>                 #47
+>                 _int
+>                   6
 >                 : Int
-572,574c572,574
-<               : _no_type
-<             : _no_type
-<           : _no_type
----
+>                 copy
+>                 (
+>                 )
 >               : Int
 >             : Int
 >           : Bool
-580c580
-<             : _no_type
----
+>           #48
+>           _dispatch
+>             #48
+>             _object
+>               self
 >             : SELF_TYPE
-586c586
-<             : _no_type
----
+>             out_string
+>             (
+>             #48
+>             _object
+>               c
 >             : String
-588c588
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-594c594
-<             : _no_type
----
+>           #49
+>           _dispatch
+>             #49
+>             _object
+>               self
 >             : SELF_TYPE
-600c600
-<             : _no_type
----
+>             out_string
+>             (
+>             #49
+>             _object
+>               w
 >             : String
-602,603c602,603
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-609c609
-<           : _no_type
----
+>         #51
+>         _dispatch
+>           #51
+>           _object
+>             self
 >           : SELF_TYPE
-615c615
-<           : _no_type
----
+>           out_string
+>           (
+>           #51
+>           _string
+>             "Pos Int1: "
 >           : String
-617c617
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-625c625
-<             : _no_type
----
+>         #55
+>         _cond
+>           #52
+>           _lt
+>             #52
+>             _int
+>               3
 >             : Int
-631c631
-<               : _no_type
----
+>             #52
+>             _dispatch
+>               #52
+>               _int
+>                 5
 >               : Int
-635,636c635,636
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Int
 >           : Bool
-642c642
-<             : _no_type
----
+>           #53
+>           _dispatch
+>             #53
+>             _object
+>               self
 >             : SELF_TYPE
-648c648
-<             : _no_type
----
+>             out_string
+>             (
+>             #53
+>             _object
+>               c
 >             : String
-650c650
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-656c656
-<             : _no_type
----
+>           #54
+>           _dispatch
+>             #54
+>             _object
+>               self
 >             : SELF_TYPE
-662c662
-<             : _no_type
----
+>             out_string
+>             (
+>             #54
+>             _object
+>               w
 >             : String
-664,665c664,665
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-671c671
-<           : _no_type
----
+>         #56
+>         _dispatch
+>           #56
+>           _object
+>             self
 >           : SELF_TYPE
-677c677
-<           : _no_type
----
+>           out_string
+>           (
+>           #56
+>           _string
+>             "Pos Int2: "
 >           : String
-679c679
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-687c687
-<             : _no_type
----
+>         #60
+>         _cond
+>           #57
+>           _leq
+>             #57
+>             _int
+>               7
 >             : Int
-693c693
-<               : _no_type
----
+>             #57
+>             _dispatch
+>               #57
+>               _int
+>                 7
 >               : Int
-697,698c697,698
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : Int
 >           : Bool
-704c704
-<             : _no_type
----
+>           #58
+>           _dispatch
+>             #58
+>             _object
+>               self
 >             : SELF_TYPE
-710c710
-<             : _no_type
----
+>             out_string
+>             (
+>             #58
+>             _object
+>               c
 >             : String
-712c712
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-718c718
-<             : _no_type
----
+>           #59
+>           _dispatch
+>             #59
+>             _object
+>               self
 >             : SELF_TYPE
-724c724
-<             : _no_type
----
+>             out_string
+>             (
+>             #59
+>             _object
+>               w
 >             : String
-726,727c726,727
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-733c733
-<           : _no_type
----
+>         #61
+>         _dispatch
+>           #61
+>           _object
+>             self
 >           : SELF_TYPE
-739c739
-<           : _no_type
----
+>           out_string
+>           (
+>           #61
+>           _string
+>             "String1 Eq: "
 >           : String
-741c741
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-749c749
-<             : _no_type
----
+>         #65
+>         _cond
+>           #62
+>           _eq
+>             #62
+>             _string
+>               "true"
 >             : String
-753,754c753,754
-<             : _no_type
-<           : _no_type
----
+>             #62
+>             _string
+>               "true"
 >             : String
 >           : Bool
-760c760
-<             : _no_type
----
+>           #63
+>           _dispatch
+>             #63
+>             _object
+>               self
 >             : SELF_TYPE
-766c766
-<             : _no_type
----
+>             out_string
+>             (
+>             #63
+>             _object
+>               c
 >             : String
-768c768
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-774c774
-<             : _no_type
----
+>           #64
+>           _dispatch
+>             #64
+>             _object
+>               self
 >             : SELF_TYPE
-780c780
-<             : _no_type
----
+>             out_string
+>             (
+>             #64
+>             _object
+>               w
 >             : String
-782,783c782,783
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-789c789
-<           : _no_type
----
+>         #66
+>         _dispatch
+>           #66
+>           _object
+>             self
 >           : SELF_TYPE
-795c795
-<           : _no_type
----
+>           out_string
+>           (
+>           #66
+>           _string
+>             "String2 Eq: "
 >           : String
-797c797
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-805c805
-<             : _no_type
----
+>         #70
+>         _cond
+>           #67
+>           _eq
+>             #67
+>             _string
+>               "true"
 >             : String
-811c811
-<               : _no_type
----
+>             #67
+>             _dispatch
+>               #67
+>               _string
+>                 "true"
 >               : String
-815,816c815,816
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : String
 >           : Bool
-822c822
-<             : _no_type
----
+>           #68
+>           _dispatch
+>             #68
+>             _object
+>               self
 >             : SELF_TYPE
-828c828
-<             : _no_type
----
+>             out_string
+>             (
+>             #68
+>             _object
+>               c
 >             : String
-830c830
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-836c836
-<             : _no_type
----
+>           #69
+>           _dispatch
+>             #69
+>             _object
+>               self
 >             : SELF_TYPE
-842c842
-<             : _no_type
----
+>             out_string
+>             (
+>             #69
+>             _object
+>               w
 >             : String
-844,845c844,845
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-851c851
-<           : _no_type
----
+>         #71
+>         _dispatch
+>           #71
+>           _object
+>             self
 >           : SELF_TYPE
-857c857
-<           : _no_type
----
+>           out_string
+>           (
+>           #71
+>           _string
+>             "String3 Eq: "
 >           : String
-859c859
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-867c867
-<             : _no_type
----
+>         #75
+>         _cond
+>           #72
+>           _eq
+>             #72
+>             _string
+>               "true_"
 >             : String
-873c873
-<               : _no_type
----
+>             #72
+>             _dispatch
+>               #72
+>               _string
+>                 "true"
 >               : String
-877,878c877,878
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : String
 >           : Bool
-884c884
-<             : _no_type
----
+>           #73
+>           _dispatch
+>             #73
+>             _object
+>               self
 >             : SELF_TYPE
-890c890
-<             : _no_type
----
+>             out_string
+>             (
+>             #73
+>             _object
+>               w
 >             : String
-892c892
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-898c898
-<             : _no_type
----
+>           #74
+>           _dispatch
+>             #74
+>             _object
+>               self
 >             : SELF_TYPE
-904c904
-<             : _no_type
----
+>             out_string
+>             (
+>             #74
+>             _object
+>               c
 >             : String
-906,907c906,907
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
-913c913
-<           : _no_type
----
+>         #76
+>         _dispatch
+>           #76
+>           _object
+>             self
 >           : SELF_TYPE
-919c919
-<           : _no_type
----
+>           out_string
+>           (
+>           #76
+>           _string
+>             "String4 Eq: "
 >           : String
-921c921
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-929c929
-<             : _no_type
----
+>         #80
+>         _cond
+>           #77
+>           _eq
+>             #77
+>             _string
+>               ""
 >             : String
-935c935
-<               : _no_type
----
+>             #77
+>             _dispatch
+>               #77
+>               _string
+>                 ""
 >               : String
-939,940c939,940
-<             : _no_type
-<           : _no_type
----
+>               copy
+>               (
+>               )
 >             : String
 >           : Bool
-946c946
-<             : _no_type
----
+>           #78
+>           _dispatch
+>             #78
+>             _object
+>               self
 >             : SELF_TYPE
-952c952
-<             : _no_type
----
+>             out_string
+>             (
+>             #78
+>             _object
+>               c
 >             : String
-954c954
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-960c960
-<             : _no_type
----
+>           #79
+>           _dispatch
+>             #79
+>             _object
+>               self
 >             : SELF_TYPE
-966c966
-<             : _no_type
----
+>             out_string
+>             (
+>             #79
+>             _object
+>               w
 >             : String
-968,970c968,970
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>             )
 >           : SELF_TYPE
 >         : SELF_TYPE
 >       : SELF_TYPE
+>     )

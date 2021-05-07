@@ -1,50 +1,8 @@
-1,46c1,6
-< #8
-< _program
-<   #8
-<   _class
-<     MyClass
-<     Object
-<     "../case1.cl"
-<     (
-<     #7
-<     _method
-<       do
-<       #2
-<       _formal
-<         arg
-<         Object
-<       Void
-<       #6
-<       _typcase
-<         #3
-<         _object
-<           arg
-<         : _no_type
-<         #4
-<         _branch
-<           o1
-<           Object1
-<           #4
-<           _int
-<             1
-<           : _no_type
-<         #5
-<         _branch
-<           o2
-<           Object2
-<           #5
-<           _dispatch
-<             #5
-<             _object
-<               o2
-<             : _no_type
-<             special
-<             (
-<             )
-<           : _no_type
-<       : _no_type
-<     )
+Segmentation fault
+1,2c1,6
+< ../case1.cl:7: Type Void is not defined.
+< ../case1.cl:7: The declared return type of method do is Void but the type of the method body is 
+\ No newline at end of file
 ---
 > Class Main is not defined.
 > ../case1.cl:7: Undefined return type Void in method do.

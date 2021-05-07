@@ -1,28 +1,5 @@
-1,24c1,2
-< #3
-< _program
-<   #3
-<   _class
-<     Main
-<     Object
-<     "../plus_incorrect.cl"
-<     (
-<     #2
-<     _method
-<       main
-<       Int
-<       #2
-<       _plus
-<         #2
-<         _int
-<           1
-<         : _no_type
-<         #2
-<         _bool
-<           1
-<         : _no_type
-<       : _no_type
-<     )
+1,2c1
+< ../plus_incorrect.cl:2: Right part of + is not of type Int.
+< ../plus_incorrect.cl:2: The declared return type of method main is Int but the type of the method body is Object .
 ---
 > ../plus_incorrect.cl:2: non-Int arguments: Int + Bool
-> Compilation halted due to static semantic errors.

@@ -1,34 +1,92 @@
-43,44c43,44
-<           : _no_type
-<         : _no_type
+Segmentation fault
+1c1,87
+< ../test_good.cl:10: The declared return type of method init is C but the type of the method body is 
+\ No newline at end of file
 ---
+> #17
+> _program
+>   #11
+>   _class
+>     C
+>     Object
+>     "../test_good.cl"
+>     (
+>     #2
+>     _attr
+>       a
+>       Int
+>       #2
+>       _no_expr
+>       : _no_type
+>     #3
+>     _attr
+>       b
+>       Bool
+>       #3
+>       _no_expr
+>       : _no_type
+>     #10
+>     _method
+>       init
+>       #4
+>       _formal
+>         x
+>         Int
+>       #4
+>       _formal
+>         y
+>         Bool
+>       C
+>       #9
+>       _block
+>         #6
+>         _assign
+>           a
+>           #6
+>           _object
+>             x
 >           : Int
 >         : Int
-51,52c51,52
-<           : _no_type
-<         : _no_type
----
+>         #7
+>         _assign
+>           b
+>           #7
+>           _object
+>             y
 >           : Bool
 >         : Bool
-56,57c56,57
-<         : _no_type
-<       : _no_type
----
+>         #8
+>         _object
+>           self
 >         : SELF_TYPE
 >       : SELF_TYPE
-74c74
-<         : _no_type
----
+>     )
+>   #17
+>   _class
+>     Main
+>     Object
+>     "../test_good.cl"
+>     (
+>     #16
+>     _method
+>       main
+>       C
+>       #15
+>       _dispatch
+>         #15
+>         _new
+>           C
 >         : C
-80c80
-<         : _no_type
----
+>         init
+>         (
+>         #15
+>         _int
+>           1
 >         : Int
-84c84
-<         : _no_type
----
+>         #15
+>         _bool
+>           1
 >         : Bool
-86c86
-<       : _no_type
----
+>         )
 >       : C
+>     )

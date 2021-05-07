@@ -1,84 +1,148 @@
-16c16
-<       : _no_type
----
+Segmentation fault
+0a1,146
+> #7
+> _program
+>   #1
+>   _class
+>     Main
+>     Object
+>     "../methodcallsitself.test"
+>     (
+>     #1
+>     _method
+>       main
+>       Int
+>       #1
+>       _int
+>         0
 >       : Int
-33c33
-<         : _no_type
----
+>     )
+>   #7
+>   _class
+>     A
+>     Object
+>     "../methodcallsitself.test"
+>     (
+>     #4
+>     _method
+>       f
+>       Int
+>       #4
+>       _dispatch
+>         #4
+>         _object
+>           self
 >         : SELF_TYPE
-37c37
-<       : _no_type
----
+>         f
+>         (
+>         )
 >       : Int
-51c51
-<         : _no_type
----
+>     #5
+>     _method
+>       g
+>       #5
+>       _formal
+>         a
+>         Int
+>       Int
+>       #5
+>       _dispatch
+>         #5
+>         _object
+>           self
 >         : SELF_TYPE
-59c59
-<           : _no_type
----
+>         g
+>         (
+>         #5
+>         _dispatch
+>           #5
+>           _object
+>             self
 >           : SELF_TYPE
-67c67
-<             : _no_type
----
+>           g
+>           (
+>           #5
+>           _dispatch
+>             #5
+>             _object
+>               self
 >             : SELF_TYPE
-71c71
-<           : _no_type
----
+>             f
+>             (
+>             )
 >           : Int
-73c73
-<         : _no_type
----
+>           )
 >         : Int
-75c75
-<       : _no_type
----
+>         )
 >       : Int
-93c93
-<         : _no_type
----
+>     #6
+>     _method
+>       h
+>       #6
+>       _formal
+>         a
+>         Int
+>       #6
+>       _formal
+>         b
+>         Int
+>       Int
+>       #6
+>       _dispatch
+>         #6
+>         _object
+>           self
 >         : SELF_TYPE
-101c101
-<           : _no_type
----
+>         h
+>         (
+>         #6
+>         _dispatch
+>           #6
+>           _object
+>             self
 >           : SELF_TYPE
-107c107
-<           : _no_type
----
+>           h
+>           (
+>           #6
+>           _int
+>             0
 >           : Int
-111c111
-<           : _no_type
----
+>           #6
+>           _int
+>             0
 >           : Int
-113c113
-<         : _no_type
----
+>           )
 >         : Int
-119c119
-<           : _no_type
----
+>         #6
+>         _dispatch
+>           #6
+>           _object
+>             self
 >           : SELF_TYPE
-127c127
-<             : _no_type
----
+>           h
+>           (
+>           #6
+>           _dispatch
+>             #6
+>             _object
+>               self
 >             : SELF_TYPE
-131c131
-<           : _no_type
----
+>             f
+>             (
+>             )
 >           : Int
-137c137
-<             : _no_type
----
+>           #6
+>           _dispatch
+>             #6
+>             _object
+>               self
 >             : SELF_TYPE
-141c141
-<           : _no_type
----
+>             f
+>             (
+>             )
 >           : Int
-143c143
-<         : _no_type
----
+>           )
 >         : Int
-145c145
-<       : _no_type
----
+>         )
 >       : Int
+>     )

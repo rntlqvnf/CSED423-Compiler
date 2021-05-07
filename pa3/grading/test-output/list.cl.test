@@ -1,230 +1,385 @@
-16c16
-<       : _no_type
----
+Segmentation fault
+0a1,383
+> #138
+> _program
+>   #53
+>   _class
+>     List
+>     Object
+>     "../list.cl.test"
+>     (
+>     #29
+>     _method
+>       isNil
+>       Bool
+>       #29
+>       _bool
+>         1
 >       : Bool
-28c28
-<           : _no_type
----
+>     #35
+>     _method
+>       head
+>       Int
+>       #35
+>       _block
+>         #35
+>         _dispatch
+>           #35
+>           _object
+>             self
 >           : SELF_TYPE
-32c32
-<         : _no_type
----
+>           abort
+>           (
+>           )
 >         : Object
-36,37c36,37
-<         : _no_type
-<       : _no_type
----
+>         #35
+>         _int
+>           0
 >         : Int
 >       : Int
-49c49
-<           : _no_type
----
+>     #40
+>     _method
+>       tail
+>       List
+>       #40
+>       _block
+>         #40
+>         _dispatch
+>           #40
+>           _object
+>             self
 >           : SELF_TYPE
-53c53
-<         : _no_type
----
+>           abort
+>           (
+>           )
 >         : Object
-57,58c57,58
-<         : _no_type
-<       : _no_type
----
+>         #40
+>         _object
+>           self
 >         : SELF_TYPE
 >       : SELF_TYPE
-72c72
-<         : _no_type
----
+>     #51
+>     _method
+>       cons
+>       #49
+>       _formal
+>         i
+>         Int
+>       List
+>       #50
+>       _dispatch
+>         #50
+>         _new
+>           Cons
 >         : Cons
-78c78
-<         : _no_type
----
+>         init
+>         (
+>         #50
+>         _object
+>           i
 >         : Int
-82c82
-<         : _no_type
----
+>         #50
+>         _object
+>           self
 >         : SELF_TYPE
-84c84
-<       : _no_type
----
+>         )
 >       : List
-113c113
-<       : _no_type
----
+>     )
+>   #90
+>   _class
+>     Cons
+>     List
+>     "../list.cl.test"
+>     (
+>     #72
+>     _attr
+>       car
+>       Int
+>       #72
+>       _no_expr
+>       : _no_type
+>     #74
+>     _attr
+>       cdr
+>       List
+>       #74
+>       _no_expr
+>       : _no_type
+>     #76
+>     _method
+>       isNil
+>       Bool
+>       #76
+>       _bool
+>         0
 >       : Bool
-121c121
-<       : _no_type
----
+>     #78
+>     _method
+>       head
+>       Int
+>       #78
+>       _object
+>         car
 >       : Int
-129c129
-<       : _no_type
----
+>     #80
+>     _method
+>       tail
+>       List
+>       #80
+>       _object
+>         cdr
 >       : List
-150,151c150,151
-<           : _no_type
-<         : _no_type
----
+>     #88
+>     _method
+>       init
+>       #82
+>       _formal
+>         i
+>         Int
+>       #82
+>       _formal
+>         rest
+>         List
+>       List
+>       #87
+>       _block
+>         #84
+>         _assign
+>           car
+>           #84
+>           _object
+>             i
 >           : Int
 >         : Int
-158,159c158,159
-<           : _no_type
-<         : _no_type
----
+>         #85
+>         _assign
+>           cdr
+>           #85
+>           _object
+>             rest
 >           : List
 >         : List
-163,164c163,164
-<         : _no_type
-<       : _no_type
----
+>         #86
+>         _object
+>           self
 >         : SELF_TYPE
 >       : SELF_TYPE
-194c194
-<           : _no_type
----
+>     )
+>   #138
+>   _class
+>     Main
+>     IO
+>     "../list.cl.test"
+>     (
+>     #102
+>     _attr
+>       mylist
+>       List
+>       #102
+>       _no_expr
+>       : _no_type
+>     #115
+>     _method
+>       print_list
+>       #107
+>       _formal
+>         l
+>         List
+>       Object
+>       #114
+>       _cond
+>         #108
+>         _dispatch
+>           #108
+>           _object
+>             l
 >           : List
-198c198
-<         : _no_type
----
+>           isNil
+>           (
+>           )
 >         : Bool
-204c204
-<           : _no_type
----
+>         #108
+>         _dispatch
+>           #108
+>           _object
+>             self
 >           : SELF_TYPE
-210c210
-<           : _no_type
----
+>           out_string
+>           (
+>           #108
+>           _string
+>             "\n"
 >           : String
-212c212
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-220c220
-<             : _no_type
----
+>         #113
+>         _block
+>           #110
+>           _dispatch
+>             #110
+>             _object
+>               self
 >             : SELF_TYPE
-228c228
-<               : _no_type
----
+>             out_int
+>             (
+>             #110
+>             _dispatch
+>               #110
+>               _object
+>                 l
 >               : List
-232c232
-<             : _no_type
----
+>               head
+>               (
+>               )
 >             : Int
-234c234
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-240c240
-<             : _no_type
----
+>           #111
+>           _dispatch
+>             #111
+>             _object
+>               self
 >             : SELF_TYPE
-246c246
-<             : _no_type
----
+>             out_string
+>             (
+>             #111
+>             _string
+>               " "
 >             : String
-248c248
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-254c254
-<             : _no_type
----
+>           #112
+>           _dispatch
+>             #112
+>             _object
+>               self
 >             : SELF_TYPE
-262c262
-<               : _no_type
----
+>             print_list
+>             (
+>             #112
+>             _dispatch
+>               #112
+>               _object
+>                 l
 >               : List
-266c266
-<             : _no_type
----
+>               tail
+>               (
+>               )
 >             : List
-268,270c268,270
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>             )
 >           : Object
 >         : Object
 >       : Object
-293c293
-<                     : _no_type
----
+>     #136
+>     _method
+>       main
+>       Object
+>       #135
+>       _block
+>         #128
+>         _assign
+>           mylist
+>           #128
+>           _dispatch
+>             #128
+>             _dispatch
+>               #128
+>               _dispatch
+>                 #128
+>                 _dispatch
+>                   #128
+>                   _dispatch
+>                     #128
+>                     _new
+>                       List
 >                     : List
-299c299
-<                     : _no_type
----
+>                     cons
+>                     (
+>                     #128
+>                     _int
+>                       1
 >                     : Int
-301c301
-<                   : _no_type
----
+>                     )
 >                   : List
-307c307
-<                   : _no_type
----
+>                   cons
+>                   (
+>                   #128
+>                   _int
+>                     2
 >                   : Int
-309c309
-<                 : _no_type
----
+>                   )
 >                 : List
-315c315
-<                 : _no_type
----
+>                 cons
+>                 (
+>                 #128
+>                 _int
+>                   3
 >                 : Int
-317c317
-<               : _no_type
----
+>                 )
 >               : List
-323c323
-<               : _no_type
----
+>               cons
+>               (
+>               #128
+>               _int
+>                 4
 >               : Int
-325c325
-<             : _no_type
----
+>               )
 >             : List
-331c331
-<             : _no_type
----
+>             cons
+>             (
+>             #128
+>             _int
+>               5
 >             : Int
-333,334c333,334
-<           : _no_type
-<         : _no_type
----
+>             )
 >           : List
 >         : List
-344c344
-<               : _no_type
----
+>         #134
+>         _loop
+>           #129
+>           _comp
+>             #129
+>             _dispatch
+>               #129
+>               _object
+>                 mylist
 >               : List
-348,349c348,349
-<             : _no_type
-<           : _no_type
----
+>               isNil
+>               (
+>               )
 >             : Bool
 >           : Bool
-357c357
-<               : _no_type
----
+>           #133
+>           _block
+>             #131
+>             _dispatch
+>               #131
+>               _object
+>                 self
 >               : SELF_TYPE
-363c363
-<               : _no_type
----
+>               print_list
+>               (
+>               #131
+>               _object
+>                 mylist
 >               : List
-365c365
-<             : _no_type
----
+>               )
 >             : Object
-374c374
-<                 : _no_type
----
+>             #132
+>             _assign
+>               mylist
+>               #132
+>               _dispatch
+>                 #132
+>                 _object
+>                   mylist
 >                 : List
-378,382c378,382
-<               : _no_type
-<             : _no_type
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>                 tail
+>                 (
+>                 )
 >               : List
 >             : List
 >           : List
 >         : Object
 >       : Object
+>     )

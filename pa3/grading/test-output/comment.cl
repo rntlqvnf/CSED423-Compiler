@@ -13,7 +13,7 @@
 <       Int
 <       #4
 <       _no_expr
-<       : _no_type
+<       : Int
 <     )
 <   #15
 <   _class
@@ -27,7 +27,7 @@
 <       Int
 <       #14
 <       _no_expr
-<       : _no_type
+<       : Int
 <     )
 ---
 > Class Main is not defined.

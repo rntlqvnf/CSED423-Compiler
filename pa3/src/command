@@ -1,0 +1,4 @@
+make
+../grading/files/lexer ../grading/$* | ../grading/files/parser | ./semant > ans_my.txt 2>&1
+../grading/files/lexer ../grading/$* | ../grading/files/parser | ../grading/files/semant > ans_ref.txt 2>&1
+diff -b ans_my.txt ans_ref.txt

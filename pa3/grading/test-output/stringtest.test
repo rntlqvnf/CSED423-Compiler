@@ -1,38 +1,60 @@
-20c20
-<           : _no_type
----
+Segmentation fault
+0a1,58
+> #7
+> _program
+>   #7
+>   _class
+>     Main
+>     Object
+>     "../stringtest.test"
+>     (
+>     #6
+>     _method
+>       main
+>       Object
+>       #6
+>       _block
+>         #3
+>         _dispatch
+>           #3
+>           _string
+>             "test"
 >           : String
-24c24
-<         : _no_type
----
+>           length
+>           (
+>           )
 >         : Int
-30c30
-<           : _no_type
----
+>         #4
+>         _dispatch
+>           #4
+>           _string
+>             "test"
 >           : String
-36c36
-<           : _no_type
----
+>           substr
+>           (
+>           #4
+>           _int
+>             0
 >           : Int
-40c40
-<           : _no_type
----
+>           #4
+>           _int
+>             1
 >           : Int
-42c42
-<         : _no_type
----
+>           )
 >         : String
-48c48
-<           : _no_type
----
+>         #5
+>         _dispatch
+>           #5
+>           _string
+>             "test"
 >           : String
-54c54
-<           : _no_type
----
+>           concat
+>           (
+>           #5
+>           _string
+>             " me"
 >           : String
-56,57c56,57
-<         : _no_type
-<       : _no_type
----
+>           )
 >         : String
 >       : String
+>     )

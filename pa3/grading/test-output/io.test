@@ -1,46 +1,88 @@
-34c34
-<           : _no_type
----
+Segmentation fault
+0a1,86
+> #10
+> _program
+>   #10
+>   _class
+>     Main
+>     IO
+>     "../io.test"
+>     (
+>     #2
+>     _attr
+>       x
+>       Int
+>       #2
+>       _no_expr
+>       : _no_type
+>     #3
+>     _attr
+>       y
+>       String
+>       #3
+>       _no_expr
+>       : _no_type
+>     #9
+>     _method
+>       main
+>       Object
+>       #9
+>       _block
+>         #5
+>         _dispatch
+>           #5
+>           _object
+>             self
 >           : SELF_TYPE
-40c40
-<           : _no_type
----
+>           out_string
+>           (
+>           #5
+>           _string
+>             "test"
 >           : String
-42c42
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-48c48
-<           : _no_type
----
+>         #6
+>         _dispatch
+>           #6
+>           _object
+>             self
 >           : SELF_TYPE
-54c54
-<           : _no_type
----
+>           out_int
+>           (
+>           #6
+>           _int
+>             5
 >           : Int
-56c56
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-65c65
-<             : _no_type
----
+>         #7
+>         _assign
+>           y
+>           #7
+>           _dispatch
+>             #7
+>             _object
+>               self
 >             : SELF_TYPE
-69,70c69,70
-<           : _no_type
-<         : _no_type
----
+>             in_string
+>             (
+>             )
 >           : String
 >         : String
-79c79
-<             : _no_type
----
+>         #8
+>         _assign
+>           x
+>           #8
+>           _dispatch
+>             #8
+>             _object
+>               self
 >             : SELF_TYPE
-83,85c83,85
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>             in_int
+>             (
+>             )
 >           : Int
 >         : Int
 >       : Int
+>     )

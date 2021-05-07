@@ -1,20 +1,39 @@
-20c20
-<           : _no_type
----
+Segmentation fault
+0a1,37
+> #4
+> _program
+>   #4
+>   _class
+>     Main
+>     IO
+>     "../IO_int.cl"
+>     (
+>     #3
+>     _method
+>       main
+>       SELF_TYPE
+>       #3
+>       _dispatch
+>         #2
+>         _dispatch
+>           #2
+>           _object
+>             self
 >           : SELF_TYPE
-26c26
-<           : _no_type
----
+>           out_string
+>           (
+>           #2
+>           _string
+>             "Here comes a number "
 >           : String
-28c28
-<         : _no_type
----
+>           )
 >         : SELF_TYPE
-34c34
-<         : _no_type
----
+>         out_int
+>         (
+>         #3
+>         _int
+>           55
 >         : Int
-36c36
-<       : _no_type
----
+>         )
 >       : SELF_TYPE
+>     )

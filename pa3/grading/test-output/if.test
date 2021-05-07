@@ -1,48 +1,84 @@
-35c35
-<                 : _no_type
----
+Segmentation fault
+0a1,82
+> #7
+> _program
+>   #7
+>   _class
+>     Main
+>     IO
+>     "../if.test"
+>     (
+>     #2
+>     _attr
+>       x
+>       Int
+>       #2
+>       _no_expr
+>       : _no_type
+>     #5
+>     _method
+>       main
+>       Object
+>       #5
+>       _block
+>         #4
+>         _cond
+>           #4
+>           _eq
+>             #4
+>             _plus
+>               #4
+>               _let
+>                 x
+>                 Int
+>                 #4
+>                 _int
+>                   5
 >                 : Int
-41c41
-<                   : _no_type
----
+>                 #4
+>                 _plus
+>                   #4
+>                   _object
+>                     x
 >                   : Int
-45,47c45,47
-<                   : _no_type
-<                 : _no_type
-<               : _no_type
----
+>                   #4
+>                   _int
+>                     3
 >                   : Int
 >                 : Int
 >               : Int
-51,52c51,52
-<               : _no_type
-<             : _no_type
----
+>               #4
+>               _int
+>                 3
 >               : Int
 >             : Int
-56,57c56,57
-<             : _no_type
-<           : _no_type
----
+>             #4
+>             _int
+>               9
 >             : Int
 >           : Bool
-61c61
-<           : _no_type
----
+>           #4
+>           _int
+>             3
 >           : Int
-67c67
-<             : _no_type
----
+>           #4
+>           _dispatch
+>             #4
+>             _object
+>               self
 >             : SELF_TYPE
-71,73c71,73
-<           : _no_type
-<         : _no_type
-<       : _no_type
----
+>             foo
+>             (
+>             )
 >           : String
 >         : Object
 >       : Object
-81c81
-<       : _no_type
----
+>     #6
+>     _method
+>       foo
+>       String
+>       #6
+>       _string
+>         "test"
 >       : String
+>     )

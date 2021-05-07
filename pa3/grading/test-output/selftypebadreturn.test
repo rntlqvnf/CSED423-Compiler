@@ -1,40 +1,5 @@
-1,36c1,2
-< #6
-< _program
-<   #1
-<   _class
-<     Main
-<     Object
-<     "../selftypebadreturn.test"
-<     (
-<     #1
-<     _method
-<       main
-<       Int
-<       #1
-<       _int
-<         0
-<       : _no_type
-<     )
-<   #6
-<   _class
-<     A
-<     Object
-<     "../selftypebadreturn.test"
-<     (
-<     #4
-<     _method
-<       foo
-<       #4
-<       _formal
-<         x
-<         Object
-<       SELF_TYPE
-<       #4
-<       _new
-<         A
-<       : _no_type
-<     )
+1,2c1
+< A:4: Type ../selftypebadreturn.test is not defined.
+< ../selftypebadreturn.test:4: The declared return type of method foo is A but the type of the method body is Object .
 ---
 > ../selftypebadreturn.test:4: Inferred return type A of method foo does not conform to declared return type SELF_TYPE.
-> Compilation halted due to static semantic errors.

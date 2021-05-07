@@ -8,6 +8,8 @@
 #include "tree.h"
 #include "cool.h"
 #include "stringtab.h"
+#include "symtab.h"
+#include <functional>
 #define yylineno curr_lineno;
 extern int yylineno;
 
@@ -44,11 +46,14 @@ typedef Expressions_class *Expressions;
 typedef list_node<Case> Cases_class;
 typedef Cases_class *Cases;
 
+using namespace cool;
+
 #define Program_EXTRAS                          \
 virtual void semant() = 0;			\
 virtual void dump_with_types(ostream&, int) = 0; 
 
-
+class attr_class;
+class method_class;
 
 #define program_EXTRAS                          \
 void semant();     				\
@@ -56,39 +61,73 @@ void dump_with_types(ostream&, int);
 
 #define Class__EXTRAS                   \
 virtual Symbol get_filename() = 0;      \
-virtual void dump_with_types(ostream&,int) = 0; 
+virtual Symbol get_name() = 0; 			\
+virtual Symbol get_parent() = 0;		\
+virtual Features get_features() = 0;	\
+virtual void dump_with_types(ostream&,int) = 0;	\
+virtual void check_type_annotate(SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *) = 0;
 
 
-#define class__EXTRAS                                 \
-Symbol get_filename() { return filename; }             \
-void dump_with_types(ostream&,int);                    
+#define class__EXTRAS                                 	\
+Symbol get_filename() { return filename; }             	\
+Symbol get_name() { return name; }             			\
+Symbol get_parent() { return parent; }             		\
+Features get_features() { return features; }             \
+void dump_with_types(ostream&,int);                  	\
+void check_type_annotate(SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
 
 
-#define Feature_EXTRAS                                        \
-virtual void dump_with_types(ostream&,int) = 0; 
+#define Feature_EXTRAS                                      \
+virtual void dump_with_types(ostream&,int) = 0; 			\
+virtual Symbol get_name() = 0;								\
+virtual Symbol get_type() = 0;								\
+virtual void check_error(std::function<ostream&()>) = 0;	\
+virtual bool check_redefined(std::function<ostream&()>, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *) = 0; \
+virtual void add_to_table(SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *) = 0;								\
+virtual void check_type_annotate(Class_, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *) = 0;
 
+#define Feature_SHARED_EXTRAS                                   \
+void dump_with_types(ostream&,int);    							\
+void check_type_annotate(Class_, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
 
-#define Feature_SHARED_EXTRAS                                       \
-void dump_with_types(ostream&,int);    
+#define method_EXTRAS                               \
+Symbol get_name() {	return name;	}				\
+Symbol get_type() {	return return_type;	}			\
+Formals get_formals() {	return formals;	}			\
+void check_error(std::function<ostream&()>);		\
+bool check_redefined(std::function<ostream&()>, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *); \
+void add_to_table(SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
 
-
-
+#define attr_EXTRAS                                 \
+Symbol get_name() {	return name; }					\
+Symbol get_type() {	return type_decl; }				\
+void check_error(std::function<ostream&()>);		\
+bool check_redefined(std::function<ostream&()>, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *); \
+void add_to_table(SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
 
 
 #define Formal_EXTRAS                              \
-virtual void dump_with_types(ostream&,int) = 0;
-
+virtual void dump_with_types(ostream&,int) = 0;		\
+virtual Symbol get_name() = 0;						\
+virtual Symbol get_type() = 0;						
 
 #define formal_EXTRAS                           \
-void dump_with_types(ostream&,int);
+void dump_with_types(ostream&,int);				\
+Symbol get_name() {	return name; }				\
+Symbol get_type() {	return type_decl; }			
 
 
 #define Case_EXTRAS                             \
-virtual void dump_with_types(ostream& ,int) = 0;
+virtual void dump_with_types(ostream& ,int) = 0;	\
+virtual Symbol get_name() = 0;						\
+virtual Symbol get_type() = 0;						\
+virtual Expression get_expr() = 0;
 
-
-#define branch_EXTRAS                                   \
-void dump_with_types(ostream& ,int);
+#define branch_EXTRAS                                 \
+void dump_with_types(ostream& ,int);			\
+Symbol get_name() { return name; }						\
+Symbol get_type() { return type_decl; }						\
+Expression get_expr() { return expr; }
 
 
 #define Expression_EXTRAS                    \
@@ -97,9 +136,11 @@ Symbol get_type() { return type; }           \
 Expression set_type(Symbol s) { type = s; return this; } \
 virtual void dump_with_types(ostream&,int) = 0;  \
 void dump_type(ostream&, int);               \
-Expression_class() { type = (Symbol) NULL; }
+Expression_class() { type = (Symbol) NULL; }	\
+virtual Expression check_type_annotate(Class_, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *) = 0;
 
 #define Expression_SHARED_EXTRAS           \
-void dump_with_types(ostream&,int); 
+void dump_with_types(ostream&,int); 		\
+Expression check_type_annotate(Class_, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
 
 #endif

@@ -1,0 +1,1 @@
+../grading/test_bad.cl:10: The declared return type of method init is C but the type of the method body is 

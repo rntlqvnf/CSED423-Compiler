@@ -1,90 +1,134 @@
-16c16
-<       : _no_type
----
+Segmentation fault
+0a1,132
+> #16
+> _program
+>   #16
+>   _class
+>     Main
+>     IO
+>     "../concat.cl"
+>     (
+>     #2
+>     _attr
+>       sum
+>       String
+>       #2
+>       _string
+>         ""
 >       : String
-24c24
-<       : _no_type
----
+>     #3
+>     _attr
+>       s
+>       String
+>       #3
+>       _string
+>         "_"
 >       : String
-40c40
-<               : _no_type
----
+>     #15
+>     _method
+>       main
+>       Object
+>       #14
+>       _block
+>         #12
+>         _loop
+>           #6
+>           _comp
+>             #6
+>             _eq
+>               #6
+>               _object
+>                 s
 >               : String
-44,46c44,46
-<               : _no_type
-<             : _no_type
-<           : _no_type
----
+>               #6
+>               _string
+>                 ""
 >               : String
 >             : Bool
 >           : Bool
-54c54
-<               : _no_type
----
+>           #11
+>           _block
+>             #8
+>             _dispatch
+>               #8
+>               _object
+>                 self
 >               : SELF_TYPE
-60c60
-<               : _no_type
----
+>               out_string
+>               (
+>               #8
+>               _string
+>                 "Type in a line: "
 >               : String
-62c62
-<             : _no_type
----
+>               )
 >             : SELF_TYPE
-71c71
-<                 : _no_type
----
+>             #9
+>             _assign
+>               s
+>               #9
+>               _dispatch
+>                 #9
+>                 _object
+>                   self
 >                 : SELF_TYPE
-75,76c75,76
-<               : _no_type
-<             : _no_type
----
+>                 in_string
+>                 (
+>                 )
 >               : String
 >             : String
-85c85
-<                 : _no_type
----
+>             #10
+>             _assign
+>               sum
+>               #10
+>               _dispatch
+>                 #10
+>                 _object
+>                   sum
 >                 : String
-91c91
-<                 : _no_type
----
+>                 concat
+>                 (
+>                 #10
+>                 _object
+>                   s
 >                 : String
-93,96c93,96
-<               : _no_type
-<             : _no_type
-<           : _no_type
-<         : _no_type
----
+>                 )
 >               : String
 >             : String
 >           : String
 >         : Object
-106c106
-<               : _no_type
----
+>         #13
+>         _dispatch
+>           #13
+>           _dispatch
+>             #13
+>             _dispatch
+>               #13
+>               _object
+>                 self
 >               : SELF_TYPE
-112c112
-<               : _no_type
----
+>               out_string
+>               (
+>               #13
+>               _string
+>                 "The sum is:\n"
 >               : String
-114c114
-<             : _no_type
----
+>               )
 >             : SELF_TYPE
-120c120
-<             : _no_type
----
+>             out_string
+>             (
+>             #13
+>             _object
+>               sum
 >             : String
-122c122
-<           : _no_type
----
+>             )
 >           : SELF_TYPE
-128c128
-<           : _no_type
----
+>           out_string
+>           (
+>           #13
+>           _string
+>             "\n"
 >           : String
-130,131c130,131
-<         : _no_type
-<       : _no_type
----
+>           )
 >         : SELF_TYPE
 >       : SELF_TYPE
+>     )

@@ -1,4 +1,0 @@
-1c1
-< ../redefinedclass.test:9: Class A is defined multiple times.
----
-> ../redefinedclass.test:9: Class A was previously defined.

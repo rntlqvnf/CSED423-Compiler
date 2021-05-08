@@ -1,4 +1,0 @@
-1c1
-< ../badredefineint.test:4: Class Int is defined multiple times.
----
-> ../badredefineint.test:4: Redefinition of basic class Int.

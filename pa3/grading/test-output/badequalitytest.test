@@ -1,4 +1,0 @@
-1c1
-< ../badequalitytest.test:5: Right part of = is not of type Int.
----
-> ../badequalitytest.test:5: Illegal comparison with a basic type.

@@ -1,3 +1,0 @@
-2,3d1
-< A:4: Type ../anattributenamedself.test is not defined.
-< ../anattributenamedself.test:4: Identifier self declared type A but assigned type Object .

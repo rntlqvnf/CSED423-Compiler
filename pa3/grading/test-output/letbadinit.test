@@ -1,5 +1,0 @@
-1,2c1
-< A:3: Type ../letbadinit.test is not defined.
-< ../letbadinit.test:4: Identifier x declared type B but assigned type Object .
----
-> ../letbadinit.test:4: Inferred type A of initialization of x does not conform to identifier's declared type B.

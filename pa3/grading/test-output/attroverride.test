@@ -1,4 +1,0 @@
-1c1
-< ../attroverride.test:8: Attribute moo is defined multiple times.
----
-> ../attroverride.test:8: Attribute moo is an attribute of an inherited class.

@@ -1,3 +1,3 @@
 class Main {
-   main(): Int { 1 + true };
+   main(): Int { true = 1 };
 };

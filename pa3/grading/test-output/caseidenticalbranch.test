@@ -1,7 +1,0 @@
-Segmentation fault
-1c1,2
-< ../caseidenticalbranch.test:4: The declared return type of method foo is Object but the type of the method body is 
-\ No newline at end of file
----
-> ../caseidenticalbranch.test:4: Duplicate branch Int in case statement.
-> Compilation halted due to static semantic errors.

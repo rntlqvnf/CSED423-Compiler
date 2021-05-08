@@ -1,4 +1,0 @@
-1c1
-< ../lubtest.test:18: The declared return type of method h is B but the type of the method body is Z .
----
-> ../lubtest.test:18: Inferred return type Z of method h does not conform to declared return type B.

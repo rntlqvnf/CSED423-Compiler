@@ -1,6 +1,0 @@
-1,3c1
-< ../selfinformalparameter.test:5: self is not allowed to appear in a formal binding.
-< A:4: Type ../selfinformalparameter.test is not defined.
-< ../selfinformalparameter.test:4: Identifier x declared type A but assigned type Object .
----
-> ../selfinformalparameter.test:5: 'self' cannot be the name of a formal parameter.

@@ -1,5 +1,0 @@
-1c1,2
-< Object:3: Type ../dupformals.test is not defined.
----
-> ../dupformals.test:3: Formal parameter x is multiply defined.
-> ../dupformals.test:3: Formal parameter x is multiply defined.

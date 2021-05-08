@@ -1,4 +1,0 @@
-1c1
-< ../selftypeparameterposition.test:4: SELF_TYPE is not allowed to appear in a formal binding.
----
-> ../selftypeparameterposition.test:4: Formal parameter x cannot have type SELF_TYPE.

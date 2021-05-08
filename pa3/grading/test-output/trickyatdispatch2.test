@@ -1,8 +1,0 @@
-1,3c1,3
-< A:10: Type ../trickyatdispatch2.test is not defined.
-< ../trickyatdispatch2.test:10: The caller is not of type B.
-< error: outside the range of the list
----
-> ../trickyatdispatch2.test:10: Expression type A does not conform to declared static dispatch type B.
-> ../trickyatdispatch2.test:10: Inferred return type Object of method binky does not conform to declared return type Int.
-> Compilation halted due to static semantic errors.

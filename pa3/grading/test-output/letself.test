@@ -1,5 +1,0 @@
-1,2c1
-< ../letself.test:3: self is not allowed to appear in a let binding.
-< ../letself.test:3: The declared return type of method main is Int but the type of the method body is Object .
----
-> ../letself.test:3: 'self' cannot be bound in a 'let' expression.

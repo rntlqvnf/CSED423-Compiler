@@ -1,5 +1,0 @@
-1,2c1
-< A:4: Type ../assignnoconform.test is not defined.
-< ../assignnoconform.test:4: Identifier b declared type B but assigned type Object .
----
-> ../assignnoconform.test:4: Type A of assigned expression does not conform to declared type B of identifier b.

@@ -1,7 +1,0 @@
-1,3c1,2
-< ../badstaticdispatch.test:11: Method foo is redefined in the current class.
-< ../badstaticdispatch.test:11: The caller is not of type C.
-< error: outside the range of the list
----
-> ../badstaticdispatch.test:11: Expression type SELF_TYPE does not conform to declared static dispatch type C.
-> Compilation halted due to static semantic errors.

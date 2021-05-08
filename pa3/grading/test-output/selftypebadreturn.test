@@ -1,5 +1,0 @@
-1,2c1
-< A:4: Type ../selftypebadreturn.test is not defined.
-< ../selftypebadreturn.test:4: The declared return type of method foo is A but the type of the method body is Object .
----
-> ../selftypebadreturn.test:4: Inferred return type A of method foo does not conform to declared return type SELF_TYPE.

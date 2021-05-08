@@ -1,4 +1,0 @@
-1c1
-< ../redefinedobject.test:6: Class Object is defined multiple times.
----
-> ../redefinedobject.test:6: Redefinition of basic class Object.

@@ -4,4 +4,3 @@ class A {
   x:A <- self;
   foo(x:A) : A {self <- self.copy()};
 };
-

@@ -1,7 +1,0 @@
-Segmentation fault
-1,2c1,2
-< Cow:11: Type ../baddispatch.test is not defined.
-< ../baddispatch.test:13: Identifier cow declared type Animal but assigned type Object .
----
-> ../baddispatch.test:12: Dispatch to undefined method moo.
-> Compilation halted due to static semantic errors.

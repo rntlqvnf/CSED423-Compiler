@@ -33,11 +33,13 @@ private:
   void install_basic_classes();
   void add_class_nodes(Classes);
   void set_uids();
-  void check_parent_exist();
+  void check_main_exist();
+  void check_parent_vaild();
   void check_cycle();
   bool check_cycle_util(int v, bool visited[], bool *recStack);
   Symbol find_symbol_by_uid(int);
 
+  void add_features(Class_, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
   void add_not_error_features(Class_, SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
   void add_not_error_feature(Symbol, Feature, std::function<ostream&()>,  SymbolTable<Symbol, attr_class> *, SymbolTable<Symbol, method_class> *);
 
@@ -64,9 +66,10 @@ public:
 
   Symbol get_lub(Symbol, Symbol);
   bool is_subclass(Symbol, Symbol);
+  bool is_subclass(Symbol, Symbol, Symbol);
   bool is_type_exist(Symbol, Symbol, tree_node *);
   bool is_method_exist(Symbol, Symbol, Symbol, tree_node *);
-  void add_formals(Formals, SymbolTable<Symbol, attr_class> *);
+  void add_formals(Formals, SymbolTable<Symbol, attr_class> *, Symbol, tree_node *);
 };
 
 

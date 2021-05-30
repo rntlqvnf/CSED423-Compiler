@@ -5,9 +5,9 @@ LLVMDIR = $(CS423)/llvm-6.0.1
 LLVMLIBDIR = $(LLVMDIR)/lib
 OPT = $(LLVMDIR)/bin/opt -O3
 
-LEXER   = /home/class/csed423/cool-ref-binary/lexer
-PARSER  = /home/class/csed423/cool-ref-binary/parser
-SEMANT  = /home/class/csed423/cool-ref-binary/semant
+LEXER   = ../ref/lexer
+PARSER  = ../ref/parser
+SEMANT  = ../ref/semant
 
 ifdef PA5
 COOLRT  = $(PADIR)/src/coolrt.o

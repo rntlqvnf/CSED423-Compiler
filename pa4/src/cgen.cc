@@ -573,13 +573,14 @@ void CgenClassTable::code_classes(CgenNode *c)
 void CgenClassTable::code_main()
 {
 	ValuePrinter vp(*ct_stream);
+	op_type i32_type(INT32), i8_ptr_type(INT8_PTR), var_type(VAR_ARG);;
+
 	string printf_string("%d\n");
 	op_arr_type i8_array_type_1(INT8, printf_string.length()+1);
 	const_value printf_string_const(i8_array_type_1, printf_string, false);
 	vp.init_constant(".str", printf_string_const);
 
 	// Define a function main that has no parameters and returns an i32
-	op_type i32_type(INT32);
 	vector<op_type> main_args_types;
   	vector<operand> main_args;
 	vp.define(i32_type, "main", main_args);
@@ -595,14 +596,12 @@ void CgenClassTable::code_main()
 	op_arr_type i8_array_type_2(INT8, printf_string.length()+1);
 	op_arr_type i8_ptr_array_type(INT8_PTR, printf_string.length()+1);
 	global_value printf_string_global(i8_ptr_array_type, ".str", printf_string_const);
-	op_type i8_ptr_type(INT8_PTR);
 	operand string_pointer = vp.getelementptr(i8_array_type_2, printf_string_global, int_value(0), int_value(0), i8_ptr_type);
 
 	// Call printf with the string address of "Main_main() returned %d\n"
 	// and the return value of Main_main() as its arguments
 	vector<op_type> printf_args_types;
 	vector<operand> printf_args;
-	op_type var_type(VAR_ARG);
 	printf_args.push_back(string_pointer);
 	printf_args.push_back(main_return);
 	printf_args_types.push_back(i8_ptr_type);
@@ -691,7 +690,7 @@ void CgenNode::layout_features()
 //
 void CgenNode::codeGenMainmain(std::ostream& ct_stream)
 {
-	ValuePrinter vp;
+	ValuePrinter vp(ct_stream);
 	// In Phase 1, this can only be class Main. Get method_class for main().
 	assert(std::string(this->name->get_string()) == std::string("Main"));
 	method_class* mainMethod = (method_class*) features->nth(features->first());
@@ -702,9 +701,9 @@ void CgenNode::codeGenMainmain(std::ostream& ct_stream)
 	// -- invoke mainMethod->code(env) to translate the method
 
 	CgenEnvironment *env = new CgenEnvironment(ct_stream, this);
-    vector<operand> args;
+    vector<operand> main_args;
     op_type i32_type(INT32);
-    vp.define(i32_type, "Main_main", args);
+    vp.define(i32_type, "Main_main", main_args);
     vp.begin_block("entry");
     mainMethod->code(env);
     vp.end_define();
@@ -812,7 +811,8 @@ void method_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "method" << endl;
 
 	// ADD CODE HERE
-
+    ValuePrinter vp(*(env->cur_stream));
+	vp.ret(int_value(0));
 }
 
 //

@@ -8,6 +8,3 @@ include ../Makefile.common
 
 $(CGEN) ::
 	make -C ../src cgen-1
-
-
-

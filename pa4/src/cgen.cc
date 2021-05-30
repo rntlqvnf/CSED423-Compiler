@@ -812,7 +812,7 @@ void method_class::code(CgenEnvironment *env)
 
 	// ADD CODE HERE
     ValuePrinter vp(*(env->cur_stream));
-	vp.ret(int_value(0));
+	vp.ret(expr->code(env));
 }
 
 //
@@ -936,7 +936,8 @@ operand int_const_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "Integer Constant" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	int_value int_const(atoi(token->get_string()));
+	return int_const;
 }
 
 operand bool_const_class::code(CgenEnvironment *env) 
@@ -944,7 +945,8 @@ operand bool_const_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "Boolean Constant" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	bool_value bool_const(val, false);
+	return bool_const;
 }
 
 operand object_class::code(CgenEnvironment *env) 

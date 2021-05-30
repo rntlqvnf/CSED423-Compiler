@@ -1,9 +1,9 @@
 
 PADIR   = $(LEVEL)
 CS423 = /home/class/csed423
-LLVMDIR = $(CS423)/llvm_bhso/llvm-3.9.0.bin
+LLVMDIR = $(CS423)/llvm-6.0.1
 LLVMLIBDIR = $(LLVMDIR)/lib
-OPT = opt -O3
+OPT = $(LLVMDIR)/bin/opt -O3
 
 LEXER   = /home/class/csed423/cool-ref-binary/lexer
 PARSER  = /home/class/csed423/cool-ref-binary/parser
@@ -29,7 +29,7 @@ CPPFLAGS = -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS $(EXTRAFLAGS) \
 	   -I. -I$(PADIR)/cool-support/include
 
 LDFLAGS = -L$(LLVMDIR)/lib
-LDLIBS = 
+LDLIBS =
 
 CXXFLAGS = -g -Wall -Wno-deprecated -Wno-unused -fpermissive -Wno-write-strings
 CXX = $(LLVMDIR)/bin/clang++
@@ -42,16 +42,16 @@ CC =$(LLVMDIR)/bin/clang
 	$(CGEN) $(CGENOPTS) < $< > $@
 
 %.bc: %.ll
-	llvm-as < $< > $@
+	$(LLVMDIR)/bin/llvm-as < $< > $@
 
 %.s: %.bc
-	llc < $< > $@
+	$(LLVMDIR)/bin/llc < $< > $@
 
 %.exe: %.s $(COOLRT)
 	$(CC) -g $+ -o $@
 
 %.verify: %.bc
-	$(OPT) -verify $< | llvm-dis > $@
+	$(OPT) -verify $< | $(LLVMDIR)/bin/llvm-dis > $@
 
 %-opt.bc: %.bc
 	$(OPT) -basicaa -instcombine -simplifycfg -scalarrepl-ssa -early-cse -jump-threading \

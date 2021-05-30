@@ -96,7 +96,7 @@ public:
 	{ Basic, NotBasic };
 
 #ifndef PA5
-	void codeGenMainmain();
+	void codeGenMainmain(std::ostream&);
 #endif
 
 private: 

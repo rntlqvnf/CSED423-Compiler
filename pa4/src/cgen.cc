@@ -499,7 +499,6 @@ CgenClassTable::CgenClassTable(Classes classes, ostream& s)
 	code_module();
 	// Done with code generation: exit scopes
 	exitscope();
-
 }
 
 CgenClassTable::~CgenClassTable()
@@ -546,7 +545,7 @@ void CgenClassTable::code_module()
 	// This must be after code_module() since that emits constants
 	// needed by the code() method for expressions
 	CgenNode* mainNode = getMainmain(root());
-	mainNode->codeGenMainmain();
+	mainNode->codeGenMainmain(*ct_stream);
 #endif
 	code_main();
 
@@ -573,26 +572,49 @@ void CgenClassTable::code_classes(CgenNode *c)
 //
 void CgenClassTable::code_main()
 {
+	ValuePrinter vp(*ct_stream);
+	string printf_string("%d\n");
+	op_arr_type i8_array_type_1(INT8, printf_string.length()+1);
+	const_value printf_string_const(i8_array_type_1, printf_string, false);
+	vp.init_constant(".str", printf_string_const);
+
 	// Define a function main that has no parameters and returns an i32
-
+	op_type i32_type(INT32);
+	vector<op_type> main_args_types;
+  	vector<operand> main_args;
+	vp.define(i32_type, "main", main_args);
 	// Define an entry basic block
-
+	string entry_string("entry");
+  	vp.begin_block(entry_string);
 	// Call Main_main(). This returns int* for phase 1, Object for phase 2
-
+  	operand main_return = vp.call(main_args_types, i32_type, "Main_main", true, main_args);
 
 #ifndef PA5
 	// Get the address of the string "Main_main() returned %d\n" using
 	// getelementptr 
+	op_arr_type i8_array_type_2(INT8, printf_string.length()+1);
+	op_arr_type i8_ptr_array_type(INT8_PTR, printf_string.length()+1);
+	global_value printf_string_global(i8_ptr_array_type, ".str", printf_string_const);
+	op_type i8_ptr_type(INT8_PTR);
+	operand string_pointer = vp.getelementptr(i8_array_type_2, printf_string_global, int_value(0), int_value(0), i8_ptr_type);
 
 	// Call printf with the string address of "Main_main() returned %d\n"
 	// and the return value of Main_main() as its arguments
-
+	vector<op_type> printf_args_types;
+	vector<operand> printf_args;
+	op_type var_type(VAR_ARG);
+	printf_args.push_back(string_pointer);
+	printf_args.push_back(main_return);
+	printf_args_types.push_back(i8_ptr_type);
+	printf_args_types.push_back(var_type);
+	operand printf_return = vp.call(printf_args_types, i32_type, "printf", true, printf_args);
+				  
 	// Insert return 0
-
+	vp.ret(int_value(0));
 #else
 	// Phase 2
 #endif
-
+	vp.end_define();
 }
 
 
@@ -667,7 +689,7 @@ void CgenNode::layout_features()
 // 
 // code-gen function main() in class Main
 //
-void CgenNode::codeGenMainmain()
+void CgenNode::codeGenMainmain(std::ostream& ct_stream)
 {
 	ValuePrinter vp;
 	// In Phase 1, this can only be class Main. Get method_class for main().
@@ -678,8 +700,14 @@ void CgenNode::codeGenMainmain()
 	// Generally what you need to do are:
 	// -- setup or create the environment, env, for translating this method
 	// -- invoke mainMethod->code(env) to translate the method
-	
 
+	CgenEnvironment *env = new CgenEnvironment(ct_stream, this);
+    vector<operand> args;
+    op_type i32_type(INT32);
+    vp.define(i32_type, "Main_main", args);
+    vp.begin_block("entry");
+    mainMethod->code(env);
+    vp.end_define();
 }
 
 #endif

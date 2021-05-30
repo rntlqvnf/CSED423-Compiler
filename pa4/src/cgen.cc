@@ -848,7 +848,11 @@ operand block_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "block" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	operand block_operand;
+	for (auto i = body->first(); body->more(i); i = body->next(i)) {
+		block_operand = body->nth(i)->code(env);
+	}
+    return block_operand;
 }
 
 operand let_class::code(CgenEnvironment *env) 
@@ -856,7 +860,35 @@ operand let_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "let" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	op_type type;
+	string type_string(type_decl->get_string());
+	if(type_string.compare("Int") == 0)
+		type = INT32;
+	else if(type_string.compare("Bool") == 0)
+		type = INT1;
+	else 
+		type = INT32;
+
+	operand vb = vp.alloca_mem(type);
+	env->add_local(identifier, vb);
+	 
+	if(init->code(env).is_empty()) {
+		if(type.get_id() == INT32) {
+			vp.store(*(env->cur_stream), int_value(0), vb);
+		}
+		else if(type.get_id() == INT1) {
+			vp.store(*(env->cur_stream), bool_value(false, true), vb);
+		}
+		else {
+
+		}
+	}
+	else {
+		vp.store(*(env->cur_stream), init->code(env), vb);
+	}
+	
+	return body->code(env);
 }
 
 operand plus_class::code(CgenEnvironment *env) 

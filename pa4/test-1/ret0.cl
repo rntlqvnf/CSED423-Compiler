@@ -1,5 +1,7 @@
 class Main {
   main(): Int {
-    2 - 3
+    let x:Bool <- true in 
+      let y:Int in
+        1000
   };
 };

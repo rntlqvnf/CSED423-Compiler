@@ -824,7 +824,10 @@ operand assign_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "assign" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+    operand expr_operand = expr->code(env);
+    vp.store(*(env->cur_stream), expr_operand, *(env->lookup(name)));
+	return expr_operand;
 }
 
 operand cond_class::code(CgenEnvironment *env) 
@@ -993,7 +996,9 @@ operand object_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "Object" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+    ValuePrinter vp(*(env->cur_stream));
+	operand obj_operand = *(env->lookup(name));
+    return vp.load(obj_operand.get_type().get_deref_type(), obj_operand);
 }
 
 operand no_expr_class::code(CgenEnvironment *env) 

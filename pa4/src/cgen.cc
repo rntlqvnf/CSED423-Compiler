@@ -864,7 +864,8 @@ operand plus_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "plus" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	return vp.add(e1->code(env), e2->code(env));
 }
 
 operand sub_class::code(CgenEnvironment *env) 
@@ -872,7 +873,8 @@ operand sub_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "sub" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	return vp.sub(e1->code(env), e2->code(env));
 }
 
 operand mul_class::code(CgenEnvironment *env) 
@@ -880,7 +882,8 @@ operand mul_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "mul" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	return vp.mul(e1->code(env), e2->code(env));
 }
 
 operand divide_class::code(CgenEnvironment *env) 
@@ -888,6 +891,8 @@ operand divide_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "div" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
+
+	// TODO: HANDLE ERROR
 	return operand();
 }
 
@@ -896,7 +901,8 @@ operand neg_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "neg" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+    ValuePrinter vp(*(env->cur_stream));
+	return vp.sub(int_value(0), e1->code(env));
 }
 
 operand lt_class::code(CgenEnvironment *env) 
@@ -904,7 +910,8 @@ operand lt_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "lt" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	return vp.icmp(LT, e1->code(env), e2->code(env));
 }
 
 operand eq_class::code(CgenEnvironment *env) 
@@ -912,7 +919,8 @@ operand eq_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "eq" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	return vp.icmp(EQ, e1->code(env), e2->code(env));
 }
 
 operand leq_class::code(CgenEnvironment *env) 
@@ -920,7 +928,8 @@ operand leq_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "leq" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	return vp.icmp(LE, e1->code(env), e2->code(env));
 }
 
 operand comp_class::code(CgenEnvironment *env) 
@@ -936,8 +945,7 @@ operand int_const_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "Integer Constant" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	int_value int_const(atoi(token->get_string()));
-	return int_const;
+	return int_value(atoi(token->get_string()));
 }
 
 operand bool_const_class::code(CgenEnvironment *env) 
@@ -945,8 +953,7 @@ operand bool_const_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "Boolean Constant" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	bool_value bool_const(val, false);
-	return bool_const;
+	return bool_value(val, false);
 }
 
 operand object_class::code(CgenEnvironment *env) 

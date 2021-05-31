@@ -854,7 +854,7 @@ operand cond_class::code(CgenEnvironment *env)
 		result = vp.alloca_mem(result_type);
 	}
 	else {
-		
+		// Not implement in PA4
 	}
 
     vp.branch_cond(*(env->cur_stream), pred->code(env), then_label, else_label);
@@ -878,9 +878,9 @@ operand loop_class::code(CgenEnvironment *env)
 	// MORE MEANINGFUL
     ValuePrinter vp(*(env->cur_stream));
 
-	string enter_label = env->new_label("enter.", false);
-	string body_label = env->new_label("loop.", false);
-	string exit_label = env->new_label("exit.", false);
+	string enter_label = env->new_label("enter.", true);
+	string body_label = env->new_label("loop.", true);
+	string exit_label = env->new_label("exit.", true);
 	operand result_operand;
 
     vp.branch_uncond(*(env->cur_stream), enter_label);
@@ -893,7 +893,7 @@ operand loop_class::code(CgenEnvironment *env)
     vp.branch_uncond(*(env->cur_stream), enter_label);
 
 	vp.begin_block(exit_label);
-	return result_operand;
+	return int_value(0);
 } 
 
 operand block_class::code(CgenEnvironment *env) 

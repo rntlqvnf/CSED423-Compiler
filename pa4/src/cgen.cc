@@ -833,9 +833,42 @@ operand assign_class::code(CgenEnvironment *env)
 operand cond_class::code(CgenEnvironment *env) 
 { 
 	if (cgen_debug) std::cerr << "cond" << endl;
-	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
-	// MORE MEANINGFUL
-	return operand();
+
+	std::map<string, op_type_id> string_to_type_dict = {
+		{"Int", INT32},
+		{"Bool", INT1}
+	};
+
+	ValuePrinter vp(*(env->cur_stream));
+	string then_type(then_exp->get_type()->get_string());
+	string else_type(else_exp->get_type()->get_string());
+	operand result;
+	op_type result_type;
+
+	string then_label = env->new_label("then.", true);
+	string else_label = env->new_label("else.", true);
+	string end_label = env->new_label("end.", true);
+
+	if(then_type.compare(else_type) == 0) {
+		result_type = op_type(string_to_type_dict[then_type]);
+		result = vp.alloca_mem(result_type);
+	}
+	else {
+		
+	}
+
+    vp.branch_cond(*(env->cur_stream), pred->code(env), then_label, else_label);
+
+	vp.begin_block(then_label);
+    vp.store(*(env->cur_stream), then_exp->code(env), result);
+    vp.branch_uncond(*(env->cur_stream), end_label);
+
+	vp.begin_block(else_label);
+    vp.store(*(env->cur_stream), else_exp->code(env), result);
+    vp.branch_uncond(*(env->cur_stream), end_label);
+
+	vp.begin_block(end_label);
+	return vp.load(result_type, result);
 }
 
 operand loop_class::code(CgenEnvironment *env) 
@@ -843,7 +876,24 @@ operand loop_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "loop" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+    ValuePrinter vp(*(env->cur_stream));
+
+	string enter_label = env->new_label("enter.", false);
+	string body_label = env->new_label("loop.", false);
+	string exit_label = env->new_label("exit.", false);
+	operand result_operand;
+
+    vp.branch_uncond(*(env->cur_stream), enter_label);
+
+	vp.begin_block(enter_label);
+    vp.branch_cond(*(env->cur_stream), pred->code(env), body_label, exit_label);
+
+	vp.begin_block(body_label);
+	result_operand = body->code(env);
+    vp.branch_uncond(*(env->cur_stream), enter_label);
+
+	vp.begin_block(exit_label);
+	return result_operand;
 } 
 
 operand block_class::code(CgenEnvironment *env) 
@@ -926,9 +976,24 @@ operand divide_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "div" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
+	ValuePrinter vp(*(env->cur_stream));
 
-	// TODO: HANDLE ERROR
-	return operand();
+	string abort_label = env->new_label("abort.", true);
+    string ok_label = env->new_ok_label();
+    operand e1_operand = e1->code(env);
+    operand e2_operand = e2->code(env);
+
+    vp.branch_cond(vp.icmp(EQ, e2_operand, int_value(0)), abort_label, ok_label);
+
+	vp.begin_block(abort_label);
+	vector<op_type> abort_args_types;
+    vector<operand> abort_args;
+    vp.call(abort_args_types, VOID, "abort", true, abort_args);
+	vp.unreachable();
+
+    vp.begin_block(ok_label);
+
+    return vp.div(e1_operand, e2_operand);
 }
 
 operand neg_class::code(CgenEnvironment *env) 
@@ -972,7 +1037,8 @@ operand comp_class::code(CgenEnvironment *env)
 	if (cgen_debug) std::cerr << "complement" << endl;
 	// ADD CODE HERE AND REPLACE "return operand()" WITH SOMETHING 
 	// MORE MEANINGFUL
-	return operand();
+	ValuePrinter vp(*(env->cur_stream));
+	return vp.xor_in(e1->code(env), bool_value(true, true));
 }
 
 operand int_const_class::code(CgenEnvironment *env) 

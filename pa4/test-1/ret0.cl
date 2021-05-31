@@ -1,7 +1,8 @@
 class Main {
   main(): Int {
-    let x:Bool <- true in 
-      let y:Int <- 100 in
-        y
+    let x:Int <- 8 in {
+      while x < 10 loop x <- x + 1 pool;
+      x;
+    }
   };
 };
